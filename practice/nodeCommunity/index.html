@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Node.js专业中文社区</title>
+	<link rel="stylesheet" type="text/css" href="style/normalize.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+
+</head>
+<body>
+	<header class="header-top">
+		<div class="container">
+			<div class="header v-flex v-flex-between">
+				<div class="brand v-flex v-flex-start">
+					<h1><img src="images/logo.jpg" alt="logo"></h1>
+					<div class="search">
+						<img src="images/icon_search.jpg" alt="搜索">
+						<input type="search" id="search">
+					</div>
+				</div>
+				<nav class="nav-menu v-flex v-flex-start">
+					<ul class="v-flex">
+						<li><a href="#">首页</a></li>
+						<li><a href="#">新手入门</a></li>
+						<li><a href="#">API</a></li>
+						<li><a href="#">关于</a></li>
+						<li><a href="#">注册</a></li>
+						<li><a href="#">登录</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header><!-- /header -->
+	<section class="section mtp-15">
+		<div class="container v-flex v-flex-between v-flex-align-start">
+			<div class="content-text">
+				<nav class="tab">
+					<ul class="v-flex v-flex-start" id="tab">
+						<li class="active"><a href="javascript:;">全部</a>
+						<li id="goods"><a href="#" >精华</a></li>
+						<li><a href="javascript:;">分享</a></li>
+						<li><a href="#">问答</a></li>
+						<li><a href="#">招聘</a></li>
+						<li><a href="#">客户端测试</a></li>
+					</ul>
+				</nav>
+				<div class="tab-content">
+					<!-- <div class="cell v-flex v-flex-between">
+						<div class="cell-inside v-flex v-flex-start">
+							<a href="" class="user-avatar"><img src="" alt="user-avatar"></a>
+							<span class="reply-count">
+								<span class="count-of-repelis" title="回复数">37</span>
+								<i>/</i>
+								<span class="count-of-visits" title="点击数">39848</span>
+							</span>
+							<span class="top">置顶</span>
+							<a href="#" class="i-title" title="北京7月29日Node Party活动总结">北京7月29日Node Party活动总结</a>
+						</div>
+						<a href="" class="last-time">
+							<img src="" alt="头像" class="mid-avatar">
+							<span>4天前</span>
+						</a>
+					</div> -->
+				</div>
+
+				<div class="pagination">
+					<ul>
+						<li><a href="#">«</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">...</a></li>
+						<li><a href="#">»</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /content-text -->
+			<div class="slidebar">
+				<div class="panel area1">
+					<p>CNode：Node.js专业中文社区</p>
+					<div class="inner">
+						您可以<a href="#" class="login">登录</a>或<a href="#" class="register">注册</a>，也可以<a href="#" class="pass-login">通过 GitHub 登录</a>
+					</div>
+				</div>
+				<div class="panel area2">
+					<a href="#"><img src="images/advert_01.jpg" ></a>
+					<a href="#"><img src="images/advert_02.jpg" ></a>
+					<a href="#"><img src="images/advert_03.jpg" ></a>
+				</div>
+				<div class="panel">
+					<div class="bartitle">无人回复的话题</div>
+					<ul class="unstyled pdt-10">
+						<li><a href="#" title="redux compose 详解">redux compose 详解</a></li>
+						<li><a href="#" title="一个测试数据生成器--mocky">一个测试数据生成器--mocky</a></li>
+						<li><a href="#" title="现在搭建视频网站有什么好的框架或源码？最好是Express+ejs+mongodb">现在搭建视频网站有什么好的框架或源码？最好是Express+ejs+mongodb</a></li>
+						<li><a href="#" title="使用ui框架怎么使用主题色变量">使用ui框架怎么使用主题色变量</a></li>
+						<li><a href="#" title="如何通过 Node.js 使用 Blob 存储">如何通过 Node.js 使用 Blob 存储</a></li>
+					</ul>
+				</div>	
+				<div class="panel">
+					<div class="bartitle">积分榜
+						<a href="#">TOP 100>></a>
+					</div>
+					<ul class="unstyled">
+						<li>
+							<span class="user-score">19940</span>
+							<span class="user-name"><a href="#">i5ting</a></span>
+						</li>
+					</ul>
+				</div>
+				<div class="panel">
+					<div class="bartitle">友情社区</div>
+					<div class="pdt-10">
+						<img src="images/f_links_01.jpg">
+						<img src="images/f_links_02.jpg">
+						<img src="images/f_links_03.jpg">
+						<img src="images/f_links_04.jpg">
+					</div>
+				</div>
+				<div class="panel">
+					<div class="bartitle">客户端二维码</div>
+					<div class="pdt-10  v-flex v-flex-column">
+						<img src="images/code.jpg">
+						<p class="pdt-10">客户端源码地址</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="container">
+			<div class="links">
+				<a href="#">Rss</a>|
+				<a href="#">源码地址</a>
+			</div>
+			<div class="col-fade">
+				<p>CNode 社区为国内最专业的 Node.js 开源技术社区，致力于 Node.js 的技术研究。</p>
+				<p>服务器赞助商为<a href=""><img src="images/foot_pic_01.jpg" ></a>，存储赞助商为<a href=""><img src="images/foot_pic_02.jpg" ></a>由，<a href=""><img src="images/foot_pic_03.jpg" ></a>提供应用性能服务。</p>
+				<p>新手搭建 Node.js 服务器，推荐使用无需备案的<a href="">DigitalOcean(https://www.digitalocean.com/)</a></p>
+			</div>
+		</div>
+	</footer>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
