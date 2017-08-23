@@ -73,7 +73,7 @@ function getData(tab){
 			     	     	html += '<span class="top">精华</span>'
 			     	     } 
 				     }
-              html +='<a href="#" id="'+i+'"; class="i-title" title="'+ data.title +'">'+ data.title +'</a>'+
+              html +='<a href="details.html/'+data.id+'"  class="i-title" title="'+ data.title +'">'+ data.title +'</a>'+
 					'</div>'+
 					'<a href="" class="last-time v-flex">'+
 						'<img src="'+ data.author.avatar_url +'" class="mid-avatar">'+
