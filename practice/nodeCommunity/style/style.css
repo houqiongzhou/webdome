@@ -125,10 +125,15 @@ i{
 
 .content-text{
 	width:992px;
-	background-color: #fff;
+}
+.bg-white{
 	border-radius: 2px;
+	background-color: #fff;
 	box-shadow: 2px 2px 3px #eee;
 	margin-bottom:15px;
+}
+.details{
+	background-color: #fff;
 }
 .tab{
 	padding:10px;
@@ -438,4 +443,41 @@ img{
 	height: 64px;
 	overflow: hidden;
 	border-radius: 4px;
+}
+
+
+/*pubilc-item*/
+.pubilc-item{
+	margin-bottom: 15px;
+	border-radius: 4px;
+	background-color: #fff;
+}
+.pubilc-hd{
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font-size:16px;
+	background-color: #f6f6f6;
+}
+.public-cont,.pubilc-hd{
+	padding:10px;
+}
+
+/*个人主页*/
+.user-line{
+	line-height: 30px;
+}
+.usea-big a{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	overflow:hidden;
+	margin-right: 4px;
+	border-radius: 4px;
+}
+.usea-big a img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.color-text{
+	color: #778087;
 }

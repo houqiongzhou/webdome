@@ -92,11 +92,17 @@ $(function() {
 				$('.replies-list').append(repText)
 
 				// 作者信息
-				$('.s-author-title').append('<a href="'+data.author.avatar_url+'"><img src="'+ data.author.avatar_url+'"></a>'+
+				$('.s-author-title').append('<a href="user.html?name='+ data.author.loginname+'"><img src="'+ data.author.avatar_url+'"></a>'+
 							'<p>'+ data.author.loginname+'</p>')
+
+
+				$.get("user.html?name='"+ data.author.loginname +"'", function(data) {
+					alert(data)
+				})
 			},
 			error: function(error) {
 				alert('数据加载出错了');
 			}
 		});
+		
 });

@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Node.js专业中文社区渲染</title>
+	<title>个人主页</title>
 	<link rel="stylesheet" type="text/css" href="style/normalize.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
-
 </head>
 <body>
 	<header class="header-top">
@@ -33,51 +32,31 @@
 	</header><!-- /header -->
 	<section class="section mtp-15">
 		<div class="container v-flex v-flex-between v-flex-align-start">
-			<div class="content-text bg-white">
-				<nav class="tab">
-					<ul class="v-flex v-flex-start" id="tab">
-						<li class="active"><a href="javascript:;">全部</a>
-						<li id="goods"><a href="#" >精华</a></li>
-						<li><a href="javascript:;">分享</a></li>
-						<li><a href="#">问答</a></li>
-						<li><a href="#">招聘</a></li>
-						<li><a href="#">客户端测试</a></li>
-					</ul>
-				</nav>
-				<div class="tab-content">
-					<!-- <div class="cell v-flex v-flex-between">
-						<div class="cell-inside v-flex v-flex-start">
-							<a href="" class="user-avatar"><img src="" alt="user-avatar"></a>
-							<span class="reply-count">
-								<span class="count-of-repelis" title="回复数">37</span>
-								<i>/</i>
-								<span class="count-of-visits" title="点击数">39848</span>
-							</span>
-							<span class="top">置顶</span>
-							<a href="#" class="i-title" title="北京7月29日Node Party活动总结">北京7月29日Node Party活动总结</a>
+			<div class="content-text">
+				<!-- <div class="pubilc-item">
+					<div class="pubilc-hd">这是一个主页</div>
+					<div class="public-cont">
+						<div class="usea-big v-flex v-flex-start">
+							<a href="#"><img src=""></a>
+							<span>name</span>
 						</div>
-						<a href="" class="last-time">
-							<img src="" alt="头像" class="mid-avatar">
-							<span>4天前</span>
-						</a>
-					</div> -->
-				</div>
-
-				<div class="pagination">
-					<ul>
-						<li><a href="#">«</a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">...</a></li>
-						<li><a href="#">»</a></li>
-					</ul>
-				</div>
+						<div class="user-line color-text">
+							<p>7个话题收藏</p>
+							<p>7个话题收藏</p>
+							<p>7个话题收藏</p>
+						</div>
+						<p class="color-text">注册时间</p>
+					</div>
+				</div> -->
 			</div>
 			<!-- /content-text -->
 			<div class="slidebar">
 				<div class="panel area1">
-					<p>CNode：Node.js专业中文社区</p>
-					<div class="inner">
-						您可以<a href="#" class="login">登录</a>或<a href="#" class="register">注册</a>，也可以<a href="#" class="pass-login">通过 GitHub 登录</a>
+					<div class="bartitle">个人信息</div>
+					<div class="author pdt-10">
+						<div class="s-author-title v-flex v-flex-start"></div>
+						<p id="integral">积分：11290</p>
+						<p>"少报怨，多思考，未来更美好"</p>
 					</div>
 				</div>
 				<div class="panel area2">
@@ -139,6 +118,51 @@
 		</div>
 	</footer>
 	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/index.js"></script>
+	<!-- <script src="js/details.js"></script> -->
+	<script>
+
+		var loc = location.href;
+		console.log(loc)
+		var n1 = loc.length;
+		var n2 = loc.indexOf('=');
+		var userName = decodeURI(loc.substr(n2+1, n1- n2));
+		console.log(userName)
+		// console.log($(document).attr('title',loginName))
+
+		$.ajax({
+			url:'https://cnodejs.org/api/v1/user/'+userName,
+         type:'GET',
+         success: function(res) {
+         	var data = res.data;
+         	console.log(data)
+         	var str = '';
+         	str += '<div class="pubilc-item">'+
+					'<div class="pubilc-hd">这是一个主页</div>'+
+					'<div class="public-cont">'+
+						'<div class="usea-big v-flex v-flex-start">'+
+							'<a href="#"><img src="'+ data.avatar_url+'"></a>'+
+							'<span>'+data.loginname+'</span>'+
+						'</div>'+
+						'<div class="user-line color-text">'+
+							'<p>'+ data.score+'个积分</p>'+
+							'<p>'+data.githubUsername+'</p>'+
+							'<p>7个话题收藏</p>'+
+						'</div>'+
+						'<p class="color-text">注册时间4周年</p>'+
+					'</div>'+
+				'</div>';
+				$('.content-text').append(str);
+
+				// 个人信息
+				$('.s-author-title').append('<a href="user.html?name='+ data.loginname+'"><img src="'+ data.avatar_url+'"></a>'+
+							'<p>'+ data.loginname+'</p>');
+				$('#integral').html('积分:'+data.score)
+         },
+         error: function(error){
+         	alert('数据返回错误!')
+         }
+		})
+		
+	</script>					
 </body>
 </html>
