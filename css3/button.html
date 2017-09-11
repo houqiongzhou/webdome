@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>button group</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		a{
+			color: #80007c;
+			text-decoration: none;
+		}
+		.section{
+			padding:40px 0;
+			text-align: center;
+			/*background-image:linear-gradient(to left, #ac00ff, #80007c);*/
+		}
+		.button{
+			display: inline-block;
+			position: relative;
+			z-index: 1;
+			overflow:hidden;
+			padding:20px 40px;
+			border-radius: 5px;
+			font-size:16px;
+		}
+		.button:before,.button:after{
+			content: "";
+			position: absolute;
+			z-index:-1;
+			transition: all 0.5s;
+		}
+		/*button1==============*/
+		.button1{
+			border:1px solid #80007c;
+			color: #80007c;
+		}
+		.button1:before{
+			width:50%;
+			height: 100%;
+			left:-50%;
+			top:0;
+			background-color:#80007c;
+		}
+		.button1:after{
+			width:50%;
+			height: 100%;
+			right:-50%;
+			top:0;
+			background-color:#80007c;
+		}
+		.button1:hover{
+			color: #fff;
+		}
+		.button1:hover:before{
+			left:0;
+		}
+		.button1:hover:after{
+			right:0;
+		}
+		/*button2============*/
+		.button2{
+			color: #fff;
+			border:1px solid #80007c;
+		}
+		.button2:before{
+			width:50%;
+			height: 100%;
+			left:0;
+			top:0;
+			background-color:#80007c;
+		}
+		.button2:after{
+			width:50%;
+			height: 100%;
+			right:0;
+			top:0;
+			background-color:#80007c;
+		}
+		.button2:hover:before{
+			left:-50%;
+		}
+		.button2:hover:after{
+			right:-50%;
+		}
+		.button2:hover{
+			border:1px solid #80007c;
+			color: #80007c;
+		}
+	</style>
+</head>
+<body>
+	<section class="section">
+		<a href="#" class="button button1">赶紧预定</a>
+	</section>
+	<section class="section">
+		<a href="#" class="button button2">赶紧预定</a>
+	</section>
+	<section class="section"></section>
+	<section class="section"></section>
+</body>
+</html>

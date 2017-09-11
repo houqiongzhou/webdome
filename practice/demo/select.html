@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>select more</title>
+	<style>
+		body{
+			padding:100px;
+		}
+		.item-filter{
+			margin-bottom: 10px;
+		}
+		.item-filter .train-type{
+			width:100px;
+			display: inline-block;
+		}
+		
+		.item-filter label{
+			width:120px;
+			display: inline-block;
+		}
+		.item-filter label.no-limit-label{
+			width:60px;
+			display: inline-blcok;
+		}
+		.item-filter label.check a,.item-filter label:hover{
+			color: #f80;
+		}
+		.select-into{
+			display: inline-block;
+		}
+		.select-into span{
+			border:1px solid #ddd;
+			padding:4px 20px 4px 6px;
+			position: relative;
+			display: inline-block;
+			margin-right:10px;
+			margin-bottom:10px;
+		}
+		.select-into span .shut-filter{
+			position: absolute;
+			top:4px;
+			right:2px;
+			color: #ddd;
+			text-decoration: none;
+		}
+		.select-into span:hover .shut-filter{
+			color:#f60;
+		}
+		.filter-hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="select-box" id="filter-content">
+		<div class="item-filter train-type">
+			<span class="train-type">车型：</span>
+			<label class="no-limit-label check"><a href="#" data-id="0">不限</a></label>
+			<label><input type="checkbox"  value="">G-高铁</label>
+			<label><input type="checkbox"  value="">D-动车</label>
+			<label><input type="checkbox"  value="">C-城际</label>
+		</div>
+		<div class="item-filter">
+			<span class="train-type">坐席：</span>
+			<label class="no-limit-label check"><a href="#" data-id="1">不限</a></label>
+			<label><input type="checkbox"  value="">商务座</label>
+			<label><input type="checkbox"  value="">特等座</label>
+			<label><input type="checkbox"  value="">二等座</label>
+			<label><input type="checkbox"  value="">高级软卧</label>
+			<label><input type="checkbox"  value="">软卧</label>
+			<label><input type="checkbox"  value="">硬卧</label>
+		</div>
+		<div class="item-filter">
+			<span class="train-type">出发车站：</span>
+			<label class="no-limit-label check"><a href="#" data-id="2">不限</a></label>
+			<label><input type="checkbox"  value="">北京</label>
+			<label><input type="checkbox"  value="">北京南</label>
+		</div>
+		<div class="item-filter">
+			<span class="train-type">到达车站：</span>
+			<label class="no-limit-label check"><a href="#" data-id="3">不限</a></label>
+			<label><input type="checkbox"  value="">上海</label>
+			<label><input type="checkbox"  value="">上海虹桥</label>
+		</div>
+		<div class="item-filter">
+			<span class="train-type">出发时段：</span>
+			<label class="no-limit-label check"><a href="#" data-id="4">不限</a></label>
+			<label><input type="checkbox"  value="">0-6点</label>
+			<label><input type="checkbox"  value="">6-12点</label>
+			<label><input type="checkbox"  value="">12-18点</label>
+			<label><input type="checkbox"  value="">18-24点</label>
+		</div>
+		<div class="item-filter">
+			<span class="train-type">到达时段：</span>
+			<label class="no-limit-label check"><a href="#" data-id="5">不限</a></label>
+			<label><input type="checkbox"  value="">0-6点</label>
+			<label><input type="checkbox"  value="">6-12点</label>
+			<label><input type="checkbox"  value="">12-18点</label>
+			<label><input type="checkbox"  value="">18-24点</label>
+		</div>
+		<div class="item-filter">
+			<span class="train-type">是否始发：</span>
+			<label class="no-limit-label check"><a href="#" data-id="6">不限</a></label>
+			<label><input type="checkbox"  value="">始发</label>
+			<label><input type="checkbox"  value="">过路</label>
+		</div>
+		<div class="filter-hide" id="select">
+			<!-- <span>己选条件：</span>
+			<div class="select-into">
+				<span class="term"><a href="#" class="shut-filter">×</a>过路</span>
+			</div> -->
+		</div>
+	</div>
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+	(function() {
+		var filterBox = $('#filter-content');
+		$('.item-filter input[type="checkbox"]').prop('checked', !1);
+		$('.item-filter .no-limit-label').addClass('check');
+		// addTo找到添加箭头添加箭头
+		// $('.item-filter').slice(2).hide();
+ 	
+
+ 		filterBox.on('click','input[type="checkbox"]',function() {
+ 			var parents = $(this).parents('.item-filter');
+ 			0 != parents.find('input[type="checkbox"]:checked').length ? parents.find('.no-limit-label').removeClass('check') : parents.find('.no-limit-label').addClass('check');
+ 			$('#select').removeClass('filter-hide');
+ 			createEl()
+ 		})
+
+ 		// 不限
+ 		filterBox.on('click', '.no-limit-label', function(event) {
+ 			event.preventDefault();
+ 			$(this).toggleClass("check"),
+ 			$(this).hasClass("check") && $(this).parents(".item-filter").find("label").find("input").prop("checked", !1);
+ 			var id = $(this).find('a').attr('data-id');
+
+ 			// $(".shut-filter").parent().eq(id).length==0?$(".shut-filter").parent().eq(0).remove():$(".shut-filter").parent().eq(id).remove();
+ 			$(".shut-filter").parent().eq(0).remove()
+ 			0 == $('#select').find('.select-into').children().length && $('#select').addClass('filter-hide');
+ 			
+ 		})
+
+ 		//创建己选条件 
+		 function createEl() {
+			var a = function() {
+				var html = '';
+				if(0 != $('.item-filter').eq(0).find('input[type="checkbox"]:checked').length) {
+					var text = '';
+					$('.item-filter').eq(0).find('input[type="checkbox"]:checked').each(function() {
+						text += $(this).parent().text() + '；'
+					});
+					html += '<span class="term" data-id="0"><a href="javascript:;" class="shut-filter" onclick="shutFilter(this)">×</a> 车型：'+ text +'</span>';
+				}
+				return html;
+			}();
+			var b = function() {
+				var html = '';
+				if(0 != $('.item-filter').eq(1).find('input[type="checkbox"]:checked').length) {
+					var text = '';
+					$('.item-filter').eq(1).find('input[type="checkbox"]:checked').each(function() {
+						text += $(this).parent().text() + '；'
+					});
+					html += '<span class="term" data-id="1"><a href="javascript:;" class="shut-filter" onclick="shutFilter(this)">×</a> 坐席：'+ text +'</span>';
+				}
+				return html;
+			}();
+			var c = function() {
+				var html = '';
+				if(0 != $('.item-filter').eq(2).find('input[type="checkbox"]:checked').length) {
+					var text = '';
+					$('.item-filter').eq(2).find('input[type="checkbox"]:checked').each(function() {
+						text += $(this).parent().text() + '；'
+					});
+					html += '<span class="term" data-id="2"><a href="javascript:;" class="shut-filter" onclick="shutFilter(this)">×</a> 出发车站：'+ text +'</span>';
+				}
+				return html;
+			}();
+			var d = function() {
+				var html = '';
+				if(0 != $('.item-filter').eq(3).find('input[type="checkbox"]:checked').length) {
+					var text = '';
+					$('.item-filter').eq(3).find('input[type="checkbox"]:checked').each(function() {
+						text += $(this).parent().text() + '；'
+					});
+					html += '<span class="term" data-id="3"><a href="javascript:;" class="shut-filter" onclick="shutFilter(this)">×</a> 到达车站：'+ text +'</span>';
+				}
+				return html;
+			}();
+			var e = function() {
+				var html = '';
+				if(0 != $('.item-filter').eq(4).find('input[type="checkbox"]:checked').length) {
+					var text = '';
+					$('.item-filter').eq(4).find('input[type="checkbox"]:checked').each(function() {
+						text += $(this).parent().text() + '；'
+					});
+					html += '<span class="term" data-id="4"><a href="javascript:;" class="shut-filter" onclick="shutFilter(this)">×</a> 出发时段'+ text +'</span>';
+				}
+				return html;
+			}();
+			var f = function() {
+				var html = '';
+				if(0 != $('.item-filter').eq(5).find('input[type="checkbox"]:checked').length) {
+					var text = '';
+					$('.item-filter').eq(5).find('input[type="checkbox"]:checked').each(function() {
+						text += $(this).parent().text() + '；'
+					});
+					html += '<span class="term" data-id="5"><a href="javascript:;" class="shut-filter" onclick="shutFilter(this)">×</a> 到达时段'+ text +'</span>';
+				}
+				return html;
+			}();
+			var g = function() {
+				var html = '';
+				if(0 != $('.item-filter').eq(6).find('input[type="checkbox"]:checked').length) {
+					var text = '';
+					$('.item-filter').eq(6).find('input[type="checkbox"]:checked').each(function() {
+						text += $(this).parent().text() + '；'
+					});
+					html += '<span class="term" data-id="6"><a href="javascript:;" class="shut-filter" onclick="shutFilter(this)">×</a> 是否始发：'+ text +'</span>';
+				}
+				return html;
+			}();
+			 var h = '<span class="train-type">您己选择：</span><div style="overflow:hidden;" class="select-into">'  + a + b + c + d + e + f + g +"</div>";
+			 $('#select').html("" == a && "" == b && "" == c && "" == d && "" == e && "" == f && "" == g ? "" : h)
+		};
+	})(jQuery)
+	function shutFilter(obj) {
+		var parent = $(obj).parent('.term');
+		var id = parent.attr('data-id');
+		parent.remove();
+		id = parseInt(id);
+		// $(".item-filter").eq(id).find(".no-limit-label").click()
+		$(".item-filter").eq(id).find("label").find("input").prop("checked", !1) && $(".item-filter").eq(id).find(".no-limit-label").addClass('check');
+		0 == $('#select').find('.select-into span').length && $('#select').addClass('filter-hide');
+	}
+</script>							
+</html>

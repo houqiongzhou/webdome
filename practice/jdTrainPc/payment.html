@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单支付</title>
+	<!-- css -->
+	<link rel="stylesheet" href="css/lib/normalize.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+	<header  class="header" id="header">
+		<div class="header-top  clearfix">
+			<div class="container clearfix">
+				<a href="#" class="trunk-home pull-left"> <i class="icon icon-return"></i>返回专区首页
+				</a>
+				<div class="header-nav pull-right clearfix">
+					<span>xf291，欢迎您。</span>
+					<a href="#">[退出]</a>
+					<a href="#">我的订单</a> 
+					<a href="#">账户中心</a> 
+					<a href="#">意见反馈</a> 
+					<a class="qrcode-btn pull-right">
+						<img alt="扫码关注疗养宝" src="images/icon_qrcode.png">
+						<span class="qrcode"><img width="165" height="165" src="images/liaoyang_qrcode.jpg"></span>
+					</a>
+					<span>扫码关注疗养宝</span>
+				</div>
+			</div>
+		</div>
+		<div class="head-brand clearfix">
+			<div class="container clearfix">
+				<h1 class="pull-left">
+					<a href="#">
+						<img src="images/logo.png" alt="logo">
+					</a>
+				</h1>
+				<div class="step-box pull-right">
+					<div class="icon-od step-line step-line-three"></div>
+					<div class="step-text">
+						<span class="pass">填写订单</span>
+						<span class="pass">确认订单</span>
+						<span class="active">支付订单</span>
+						<span>订单完成</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header End -->
+	<div class="container confirm-box clearfix">
+		<div class="toptips margin-b-16"><i class="icon-pay"></i>您的订单已提交成功，请您在30分钟内完成付款，否则系统将自动取消本次交易！</div>
+		<ul class="price-check margin-b-16">
+			<li>
+				<div class="inside">
+					<i class="icon-pay icon-number"></i>
+					<p>订单编号</p>
+					<p>12384795094829</p>
+				</div>
+			</li>
+			<li>
+				<div class="inside">
+					<i class="icon-pay icon-total"></i>
+					<p>订单总金额</p>
+					<p>￥123</p>
+				</div>
+			</li>
+			<li>
+				<div class="inside">
+					<i class="icon-pay icon-ly"></i>
+					<p>疗养账户支付总金额</p>
+					<p>￥485</p>
+				</div>
+			</li>
+			<li>
+				<div class="inside">
+					<i class="icon-pay icon-zf"></i>
+					<p>支付宝账户支付</p>
+					<p>￥1384</p>
+				</div>
+			</li>
+		</ul>
+		<div class="pay-item margin-b-16 clearfix">
+			<div class="account pull-left">
+				<i class="icon-pay icon-zf-blue"></i>
+				<p>疗养账户（刘青云）</p>
+				<p>支付卡号:ceshi00989</p>
+			</div>
+			<div class="pay-total-price pull-left">金额：<span class="text-price">￥120</span></div>
+			<div class="pwd pull-left">
+				<label class="pwd-label pull-left">支付密码:</label>
+				<div class="pwd-input pull-left">
+					<input type="text" >
+					<p class="error" style="display: block;">支付密码错误！请重新输入</p>
+				</div>
+			</div>
+		</div>
+		<!-- pay-item End -->
+		<div class="submit-box clearfix">
+			<input type="submit" class="input-btn btn pull-right" id="payment" value="支付订单">
+		</div>
+	</div>
+	<!-- prolem End -->
+	<!-- container End -->
+	<div class="footer">
+		<div class="container">
+			<p>疗养专线：400-066-9393，服务时间：周一到周五8:00-23:00，周六周日8:00-20:00</p>
+			<p><i class="icon icon-copy"></i>京公海网安备110108000889 | 京ICP备15057296号</p>
+			<p>Copyright © 幸福时代网络科技（北京）股份有限公司</p>
+		</div>
+	</div>
+	<!-- footer End --> 
+		<div class="mask" style="display: none"></div>
+	<!-- script -->
+	<script src="script/lib/jquery-3.1.1.min.js"></script>
+	<script src="script/publice.js"></script>
+	<script>
+		$('#payment').on('click', function() {
+			loading('加载中,请稍候…',$('body'),'lod-pos')
+		})
+	</script>
+</body>
+</html>

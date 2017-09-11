@@ -1,0 +1,138 @@
+
+.citySelector {
+    background: #fff none repeat scroll 0 0;
+    font: 12px/1.5 tahoma,arial,"microsoft yahei";
+    text-align: left;
+}
+.cityslide {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #85bee5 #3485c0 #3485c0 #85bee5;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    list-style: outside none none;
+    margin: -2px 0 0;
+    padding: 0;
+    width: 218px;
+    max-height: 240px;
+    overflow-y: auto;
+}
+.cityslide li {
+    /*height: 16px;*/
+    list-style: outside none none;
+    overflow: hidden;
+    padding: 4px 5px;
+}
+.cityslide li.on {
+    background: #2577e3 none repeat scroll 0 0;
+    color: #fff;
+}
+.cityslide li b {
+    font-weight: normal;
+}
+.cityslide li.empty {
+    background: #fff2e8 none repeat scroll 0 0;
+    color: #999;
+}
+.cityslide li.empty em {
+    color: red;
+    font-style: normal;
+}
+.cityname {
+    float: left;
+}
+.cityspell {
+    float: right;
+}
+.cityBox {
+    border: 1px solid #999;
+    overflow: hidden;
+    width: 420px;
+}
+.cityBox ul {
+   padding-left: 10px;
+   height: 21px;
+   overflow: visible;
+   _overflow: hidden;
+}
+.cityBox ul li {
+   display: inline;
+	position: relative;
+	_zoom: 1;
+	width: 65px;
+	text-align: center;
+	float: left;
+	margin-right: 1px;
+	height: 21px;
+	line-height: 21px;
+	cursor: pointer;
+	background-color: #e6e6e6;
+	overflow: hidden;
+}
+.cityBox ul li.on {
+	color: #fff;
+    background-color:#2577e3;
+    position: relative;
+}
+.hide {
+    display: none;
+}
+p.tip {
+    line-height: 20px;
+    margin: 0 0 10px;
+    padding: 5px;
+    text-indent: 3px;
+}
+.hotCity {
+    clear: left;
+    margin-top: -1px;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.cityTab {
+    overflow: hidden;
+}
+.cityTab dl {
+    margin: 0;
+    overflow: hidden;
+    padding:4px 0px;
+  /*  border-bottom:1px dashed #CBCBCB;
+    *border-bottom-style:expression(this.nextSibling==null?"none":"dashed");*/
+}
+.cityTab dl:last-child{
+	border-bottom:0;
+}
+.cityTab dl dt {
+    color: #2577e3;
+    float: left;
+    font-family: "Lucida console","consolas","courier new";
+    font-size: 16px;
+    line-height: 22px;
+    padding-left: 3px;
+    text-indent: 5px;
+    width: 20px;
+}
+.cityTab dl dd {
+    float: left;
+    margin-left: 2px;
+    width: 396px;
+    *width:390px;
+}
+.cityTab dl dd a {
+    color: #000;
+    display: inline-block;
+    line-height: 22px;
+    padding-left: 5px;
+    text-decoration: none;
+    width: 66px;
+}
+.cityTab dl dd a:hover {
+    color: #2577e3;
+    text-decoration: underline;
+}
+

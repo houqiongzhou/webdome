@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>火车票-查询页</title>
+	<!-- css -->
+	<link rel="stylesheet" href="css/lib/normalize.css">
+	<link rel="stylesheet" href="css/lib/city.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/search-list.css">
+</head>
+	<body>
+		<header  class="header">
+			<div class="header-top  clearfix">
+				<div class="container clearfix">
+					<a href="#" class="trunk-home pull-left"> <i class="icon icon-return"></i>返回专区首页
+					</a>
+					<div class="header-nav pull-right clearfix">
+						<span>xf291，欢迎您。</span>
+						<a href="#">[退出]</a>
+						<a href="#">我的订单</a> 
+						<a href="#">账户中心</a> 
+						<a href="#">意见反馈</a> 
+						<a class="qrcode-btn pull-right">
+							<img alt="扫码关注疗养宝" src="images/icon_qrcode.png">
+							<span class="qrcode"><img width="165" height="165" src="images/liaoyang_qrcode.jpg"></span>
+						</a>
+						<span>扫码关注疗养宝</span>
+					</div>
+				</div>
+			</div>
+			<div class="head-brand clearfix">
+				<div class="container clearfix">
+					<h1 class="pull-left">
+						<a href="#">
+							<img src="images/logo.png" alt="logo">
+						</a>
+					</h1>
+					<h2 class="pull-right">疗养专线：<a>400-066-9393</a></h2>
+				</div>
+			</div>
+		</header>
+		<!-- header End -->
+		<div class="form-box clearfix">
+			<div class="container clearfix">
+				<div class="input-group form-box-item">
+					<label class="label" >出发城市</label>
+					<input type="text" id="form-city">
+					<i class="icon-list icon-map"></i>
+				</div>
+				<div class="input-group icon-switch">
+					<span>换</span>
+					<i></i>
+				</div>
+				<div class="input-group form-box-item">
+					<label class="label" >到达城市</label>
+					<input type="text" id="to-city">
+					<i class="icon-list icon-map"></i>
+				</div>
+				<div class="input-group form-box-item">
+					<label class="label" >出发日期</label>
+					<input type="text" id="form-time">
+					<span class="text-day"></span>
+				</div>
+				<div class="input-group search-btn">
+					<!-- <input type="button" value="搜索"> -->
+					<a href="#" class="btn btn-entity">搜索</a>
+				</div>
+			</div>
+		</div>
+		<!-- form(搜索框) End-->
+		<div class="container list-area-box clearfix">
+			<div class="totals-car clearfix">
+				<strong class="pull-left">上海 → 广州</strong>
+				<p class="pull-left"><span>05月23日</span>共查询到<i>2</i>个车次</p>
+			</div>
+			<div class="switch-week clearfix">
+				<a href="javascript:;" class="pull-left arrow-area" id="prev-day">
+					<i class="icon-list i icon-prev">上一天</i>
+				</a>
+				<a href="javascript:;" class="pull-right arrow-area" id="next-day">
+					<i class="icon-list icon-next">下一天</i>
+				</a>
+				<div class="week-box pull-left" id="js-calendar">
+					<ul class="week-ul">
+						<li  data-val="2017-09-11" class="on">
+							<p>09-11</p>
+							<h4>周一</h4>
+						</li>
+						<li data-val="2017-09-12" >
+							<p>09-12</p>
+							<h4>周二</h4>
+						</li>
+						<li data-val="2017-09-13" >
+							<p>09-13</p>
+							<h4>周二</h4>
+						</li>
+						<li data-val="2017-09-14" >
+							<p>09-14</p>
+							<h4>周二</h4>
+						</li>
+						<li data-val="2017-09-15" >
+							<p>09-15</p>
+							<h4>周二</h4>
+						</li>
+						<li data-val="2017-09-16" >
+							<p>09-16</p>
+							<h4>周二</h4>
+						</li>
+						<li data-val="2017-09-17" >
+							<p>09-17</p>
+							<h4>周日</h4>
+						</li>
+						<li data-val="2017-09-18" >
+							<p>09-18</p>
+							<h4>周日</h4>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- week End -->
+			<div class="sear-filter-type" id="filter-content">
+				<div class="item-filter">
+					<span class="train-type">车型：</span>
+					<label class="no-limit-label check"><a href="#">不限</a></label>
+					<label><input type="checkbox"  value="G">G-高铁</label>
+					<label><input type="checkbox"  value="D">D-动车</label>
+					<label><input type="checkbox"  value="C">C-城际</label>
+					<label><input type="checkbox"  value="Z">Z-直达</label>
+					<label><input type="checkbox"  value="T">T-特快</label>
+					<label><input type="checkbox"  value="Q">其它</label>
+				</div>
+				<div class="item-filter">
+					<span class="train-type">坐席：</span>
+					<label class="no-limit-label check"><a href="#">不限</a></label>
+					<label><input type="checkbox"  value="商务座">商务座</label>
+					<label><input type="checkbox"  value="特等座">特等座</label>
+					<label><input type="checkbox"  value="一等座">一等座</label>
+					<label><input type="checkbox"  value="二等座">二等座</label>
+					<label><input type="checkbox"  value="高级软卧">高级软卧</label>
+					<label><input type="checkbox"  value="软卧">软卧</label>
+					<label><input type="checkbox"  value="硬卧">硬卧</label>
+					<label><input type="checkbox"  value="软坐">软坐</label>
+					<label><input type="checkbox"  value="硬坐">硬坐</label>
+				</div>
+				<div class="item-filter">
+					<span class="train-type">出发车站：</span>
+					<label class="no-limit-label check"><a href="#">不限</a></label>
+					<label><input type="checkbox"  value="北京">北京</label>
+					<label><input type="checkbox"  value="北京南">北京南</label>
+				</div>
+				<div class="item-filter">
+					<span class="train-type">到达车站：</span>
+					<label class="no-limit-label check"><a href="#">不限</a></label>
+					<label><input type="checkbox"  value="上海">上海</label>
+					<label><input type="checkbox"  value="上海虹桥">上海虹桥</label>
+				</div>
+				<div class="item-filter">
+					<span class="train-type">出发时段：</span>
+					<label class="no-limit-label check"><a href="#">不限</a></label>
+					<label><input type="checkbox"  value="0-6">0-6点</label>
+					<label><input type="checkbox"  value="6-12">6-12点</label>
+					<label><input type="checkbox"  value="12-18">12-18点</label>
+					<label><input type="checkbox"  value="18-24">18-24点</label>
+				</div>
+				<div class="item-filter">
+					<span class="train-type">到达时段：</span>
+					<label class="no-limit-label check"><a href="#">不限</a></label>
+					<label><input type="checkbox"  value="0-6">0-6点</label>
+					<label><input type="checkbox"  value="6-12">6-12点</label>
+					<label><input type="checkbox"  value="12-18">12-18点</label>
+					<label><input type="checkbox"  value="18-24">18-24点</label>
+				</div>
+				<div class="item-filter">
+					<span class="train-type">是否始发：</span>
+					<label class="no-limit-label check"><a href="#">不限</a></label>
+					<label><input type="checkbox"  value="始发">始发</label>
+					<label><input type="checkbox"  value="过路">过路</label>
+				</div>
+				<div class="hide" id="select">
+					<!-- <span>己选条件：</span>
+					<div class="select-into">
+						<span class="term"><a href="#" class="shut-filter">×</a>过路</span>
+					</div> -->
+				</div>
+				<a href="javascript:;" class="filter-more"><i class="icon-list"></i>更多筛选条件</a>
+			</div>
+			<!-- filter End(筛选) -->
+			<div class="car-list-content">
+				<ul class="sear-table thead">
+					<li class="td row-td1">车次</li>
+					<li class="td row-td2">始末站</li>
+					<li class="td row-td3">出发/到达时间</li>
+					<li class="td row-td4">耗时</li>
+					<li class="td row-td5">参考票价</li>
+					<li class="td row-td6">余票</li>
+					<li class="td row-td7">
+						<a href="javascript:void(0);"><i class="icon-list"></i>退改签说明</a>
+						<div class="common-toptips toptips-max">
+							<div class="bdnuarrow"><em></em><b></b></div>
+							<div class="toptips-content">
+	                     <h4>退票说明：</h4>
+	                     <ul>
+	                         <li>1、预订火车票成功后，如未取票且离订单内显示的火车发车时间大于90分钟，您可在线申请退票。</li>
+	                         <li>2、预订成功后，如已取票或离订单内显示的火车发车时间小于90分钟，您须在发车前携带纸质车票及购票时使用的有效身份证件至全国任意一个火车站的退票窗口办理退票。</li>
+	                         <li>3、发车前15天以内的退票，铁路局将对每张车票按梯次收取退票手续费。最终退票手续费以铁路局实际收取为准。</li>
+	                     </ul>
+	                     <h4>改签说明：</h4>
+	                     <ul>
+	                         <li>1、在有运输能力的前提下，开车前48小时（不含）以上，可改签预售期内的其他列车。</li>
+	                         <li>2、开车前48小时以内，可改签开车前的其他列车，也可改签开车后至票面日期当日24:00之间的其他列车，不办理票面日期次日及以后的改签。</li>
+	                         <li>3、开车之后，旅客仍可改签当日其他列车，但只能在票面发站办理改签，且开车后改签的车票不能退票。已经办理“变更到站”的车票，不再办理改签。</li>
+	                         <li>4、开车前48小时~15天期间内，改签至距开车15天以上的其他列车，又在距开车15前退票，仍需收取5%的退票费。改签后车票的乘车日期在春运期间的，退票时一律按开车时间前不足24小时标准核收退票费。</li>
+	                         <li>5、车票只能改签一次；已经改签的车票不能再次改签，但可在改签后车票载明的列车开车前退票。</li>
+	                         <li>6、车站窗口改签若产生退款，预计7-15个工作日退回原支付账号。</li>
+	                         <li>详情请参考订单页《火车票平台用户协议》</li>
+	                     </ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!-- <div class="loading">
+					<div class="loading-img">
+						<img src="images/loading.gif">
+					</div>
+					<p>正在努力加载列车信息，请稍后……</p>
+				</div> -->
+				<div class="empty">
+					<p>十分抱歉，暂未搜索到符合条件的车次信息，请尝试重新查询</p>
+				</div>
+				<ul class="tbody">
+					<li class="item-tr">
+						<div class="item-tr-th">
+							<div class="td row-td1">
+								<strong>k51</strong>
+								<a href="javascript:;" class="car-stop"> 经停站<i class="icon-list"></i></a>
+							</div>
+							<div class="td row-td2">
+								<p class="ztime">
+									<i class="s">始</i>
+									<span>海口</span>
+								</p>
+								<p class="ztime">
+									<i class="z">始</i>
+									<span>上海南</span>
+								</p>
+							</div>
+							<div class="td row-td3">
+								<p class="ztime">
+									<span class="ztime-time">10:30</span>
+								</p>
+								<p class="ztime">
+									<span class="last">09:23</span>
+									<i class="addtwo">+2天</i>
+									<span class="common-toptips toptips-min">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">
+											到达时间为第二天2017-06-27
+										</span>
+									</span>
+								</p>
+							</div>
+							<div class="td row-td4">
+								<p class="ztime">
+									<span>3小时55分</span>
+								</p>
+							</div>
+							<div class="td row-td5">
+								<p class="ztime">
+									<b class="half-l soft"><a href="javascript:;">软卧</a></b>
+									<span class="half-r text-price"><dfn>￥</dfn>65.5</span>
+									<span class="common-toptips toptips-middle">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">
+											上/中/下铺是随机分配的，页面卧铺票价仅供参考。<strong>如必须购买下铺?</strong>，请到车站或者代售点购票。
+										</span>
+									</span>
+								</p>
+								<p class="ztime">
+									<b class="half-l">高级软座</b>
+									<span class="half-r text-price"><dfn>￥</dfn>653</span>
+								</p>
+								<p class="ztime">
+									<b class="half-l soft"><a href="javascript:;">软卧</a></b>
+									<span class="half-r text-price"><dfn>￥</dfn>65.5</span>
+									<span class="common-toptips toptips-middle">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">
+											<strong class="row-strong">
+												<i>软卧上</i>
+												<i class="text-price"><dfn>￥</dfn>99.6</i>
+											</strong>
+											<strong class="row-strong">
+												<i>软卧上</i>
+												<i class="text-price"><dfn>￥</dfn>99.6</i>
+											</strong>
+											<em>上/中/下铺是随机分配的，页面卧铺票价仅供参考。<strong>如必须购买下铺?</strong>，请到车站或者代售点购票。</em>
+										</span>
+									</span>
+								</p>
+							</div>
+							<div class="td row-td6">
+								<p class="no-orange"><i>1</i>张</p>
+								<p class="whole">
+									充足
+									<span class="common-toptips toptips-min">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">9</span>
+									</span>
+								</p>
+							</div>
+							<div class="td row-td7">
+								<a href="javascript:;" class="btn-min btn-default">预订</a>
+							</div>
+						</div>
+						<div  class="childen-table">
+							<table>
+								<thead>
+									<tr>
+										<th>站次</th>
+										<th>站名</th>
+										<th>到达时间</th>
+										<th>开车时间</th>
+										<th>停留时间</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="pass">
+										<td>1</td>
+										<td>北京西</td>
+										<td>09:20</td>
+										<td>09:20</td>
+										<td>5分钟</td>
+									</tr>
+									<tr class="cur">
+										<td>1</td>
+										<td>北京西</td>
+										<td>09:20</td>
+										<td>09:20</td>
+										<td>5分钟</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li class="item-tr thdie">
+						<div class="item-tr-th">
+							<div class="td row-td1">
+								<strong>k51</strong>
+								<a href="javascript:;" class="car-stop"> 经停站<i class="icon-list"></i></a>
+							</div>
+							<div class="td row-td2">
+								<p class="ztime">
+									<i class="s">始</i>
+									<span>海口</span>
+								</p>
+								<p class="ztime">
+									<i class="z">始</i>
+									<span>上海南</span>
+								</p>
+							</div>
+							<div class="td row-td3">
+								<p class="ztime">
+									<span class="ztime-time">10:30</span>
+								</p>
+								<p class="ztime">
+									<span class="last">09:23</span>
+									<i class="addtwo">+2天</i>
+									<span class="common-toptips toptips-min">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">
+											到达时间为第二天2017-06-27
+										</span>
+									</span>
+								</p>
+							</div>
+							<div class="td row-td4">
+								<p class="ztime">
+									<span>3小时55分</span>
+								</p>
+							</div>
+							<div class="td row-td5">
+								<p class="ztime">
+									<b class="half-l soft"><a href="javascript:;">软卧</a></b>
+									<span class="half-r text-price"><dfn>￥</dfn>65.5</span>
+									<span class="common-toptips toptips-middle">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">
+											上/中/下铺是随机分配的，页面卧铺票价仅供参考。<strong>如必须购买下铺?</strong>，请到车站或者代售点购票。
+										</span>
+									</span>
+								</p>
+								<p class="ztime">
+									<b class="half-l">高级软座</b>
+									<span class="half-r text-price"><dfn>￥</dfn>653</span>
+								</p>
+								<p class="ztime">
+									<b class="half-l soft"><a href="javascript:;">软卧</a></b>
+									<span class="half-r text-price"><dfn>￥</dfn>65.5</span>
+									<span class="common-toptips toptips-middle">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">
+											<strong class="row-strong">
+												<i>软卧上</i>
+												<i class="text-price"><dfn>￥</dfn>99.6</i>
+											</strong>
+											<strong class="row-strong">
+												<i>软卧上</i>
+												<i class="text-price"><dfn>￥</dfn>99.6</i>
+											</strong>
+											<em>上/中/下铺是随机分配的，页面卧铺票价仅供参考。<strong>如必须购买下铺?</strong>，请到车站或者代售点购票。</em>
+										</span>
+									</span>
+								</p>
+							</div>
+							<div class="td row-td6">
+								<p class="no-orange"><i>1</i>张</p>
+								<p class="whole">
+									充足
+									<span class="common-toptips toptips-min">
+										<i class="bdnuarrow"><em></em><b></b></i>
+										<span class="toptips-content">9</span>
+									</span>
+								</p>
+							</div>
+							<div class="td row-td7">
+								<a href="confirmOrder.html" class="btn btn-entity btn-min">预订</a>
+							</div>
+						</div>
+						<div  class="childen-table">
+							<table>
+								<thead>
+									<tr>
+										<th>站次</th>
+										<th>站名</th>
+										<th>到达时间</th>
+										<th>开车时间</th>
+										<th>停留时间</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="pass">
+										<td>1</td>
+										<td>北京西</td>
+										<td>09:20</td>
+										<td>09:20</td>
+										<td>5分钟</td>
+									</tr>
+									<tr class="cur">
+										<td>1</td>
+										<td>北京西</td>
+										<td>09:20</td>
+										<td>09:20</td>
+										<td>5分钟</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- container End -->
+		<div class="footer">
+			<div class="container">
+				<p>疗养专线：400-066-9393，服务时间：周一到周五8:00-23:00，周六周日8:00-20:00</p>
+				<p><i class="icon icon-copy"></i>京公海网安备110108000889 | 京ICP备15057296号</p>
+				<p>Copyright © 幸福时代网络科技（北京）股份有限公司</p>
+			</div>
+		</div>
+		<!-- footer End -->
+		
+		<!-- script -->
+		<script src="script/lib/jquery-3.1.1.min.js"></script>
+		<script src="script/My97DatePicker/WdatePicker.js"></script>
+		<script src="script/lib/city.js"></script>
+		<script src="script/publice.js"></script>
+		<script src="script/sear-list.js"></script>
+		<script>
+			$(function() {
+				// function getCountDays() {
+				// 	  var curDate = new Date();
+				// 	  var curMonth = curDate.getMonth();
+				// 	   curDate.setMonth(curMonth + 1);
+				// 	   curDate.setDate(0);
+				// 	   return curDate.getDate();
+				// }
+
+			})
+		</script>
+</body>
+</html>

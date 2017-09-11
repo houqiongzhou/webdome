@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>教程上的案例</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.demo{
+			width:80px;
+			height: 80px;
+		}
+		.blue{
+			background-color: blue;
+		}
+		.green{
+			background-color: green;
+		}
+		.box{
+			display: flex;
+		}
+		.box > div{
+			margin:0 10px;
+		}
+		.pink{
+			background-color: pink;
+		}
+		.brown{
+			background-color: brown;
+		}
+		.red{
+			background-color: red;
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.orange{
+			background-color: orange;
+		}
+		.files-scanned{
+			color:blue;
+			line-height: 30px;
+
+		}
+		.infected{
+			color:red;
+			line-height:30px;
+		}
+		.svg-demo,.svg-demo2{
+			width:400px;
+			height: 400px;
+			position: relative;
+		}
+		.svg-squre{
+			width:20px;
+			height: 20px;
+			border-radius: 4px;
+			background-color: red;
+			position: absolute;
+			left:-12px;
+			top:-12px;
+		}
+	</style>
+</head>
+<body>
+	<div class="demo blue"></div>
+	<div class="demo green"></div>
+	<div class="box">
+		<div class="square demo orange"></div>
+		<div class="square demo brown"></div>
+		<div class="square demo orange"></div>
+		<div class="square demo brown"></div>
+		<div class="square demo orange"></div>
+		<div class="square1 demo pink"></div>
+		<div class="square2 demo red"></div>
+		<button class="Basic">Basic Timeline</button>
+		<button class="Offset">Offset Timeline</button>
+		<button class="tancube">tanCube Easing</button>
+		<button class="tansqr">tanSqr Easing</button>
+	</div>
+	<p class="files-scanned">Files Scanned:<span class="scan-count">1000</span></p>
+	<p class="infected">InfectedFiles:<span class="infected-count">8</span></p>
+	<button id="begin">开始计算</button>
+	<button class="begin-ami">开始动画</button>
+
+	<!-- svg -->
+	<!-- <div class="svg-demo">
+		<svg width="400" height="400">
+			<path d ="M250 150 L150 350 L350 350 Z" stroke="black" stroke-width="1px" fill="none"></path>
+		</svg>
+		<div class="svg-squre"></div>
+	</div> -->
+
+	<div class="svg-demo2">
+		<svg viewBox="0 0 1024 1024" version="1.1" >
+			<path class="path" d="M799.696909 576.926732l4.192485-0.01535c52.093449-1.421372 130.364093-83.381036 130.364093-169.756265 0-86.383416-75.239612-168.034041-168.025854-168.034041-3.791349 0-7.538697 0.143263-11.257391 0.387833l-56.803727 0.581238c-20.030196-23.024389-33.686217-34.870182-46.781466-49.609884-39.386032-47.822169-99.032504-78.305437-165.815513-78.305437-110.289895 0-201.12367 83.158978-213.285664 190.18248-1.263783 17.460674-2.799766 29.277814-4.006244 40.692794l-65.390289-0.028653c-3.834328-0.38067-7.739265-0.575098-11.673877-0.575098-64.614623 0-116.995621 52.373835-116.995621 116.995621 0 60.414975 45.790906 110.11798 104.547101 116.334565l0 1.889023 69.554122 0 0 72.361051-57.104579-0.157589c-97.596805-0.26606-176.72805-92.814896-176.72805-190.426027s79.116919-176.742377 176.72805-176.742377c4.89652 0 9.750061 0.214894 14.530948 0.610914C226.694557 147.598616 344.005356 43.705408 485.569536 43.705408c96.864118 0 182.341908 48.640814 233.402841 122.825396 15.291265-2.986007 31.087019-4.573155 47.255257-4.573155 135.402853 0 245.175979 109.780289 245.175979 245.198491 0 124.052341-92.125187 226.575342-211.70568 242.901169L799.697933 576.926732 799.696909 576.926732zM408.792918 564.197826 316.164265 751.666498l90.058109-0.998747L316.164265 939.134147l226.740094-229.53986-87.560218-8.42795 101.229542-136.969535L408.792918 564.196803 408.792918 564.197826zM653.696698 707.814758c26.176173 0 47.385217-21.214161 47.385217-47.391357s-31.05939-113.865327-47.385217-113.865327-47.397496 87.689155-47.397496 113.865327S627.520525 707.814758 653.696698 707.814758L653.696698 707.814758zM664.221402 730.723513l74.350358 91.530646-74.464969 159.354358L589.85774 822.255183 664.221402 730.723513 664.221402 730.723513zM665.78706 746.151901l0 76.102259 60.508096 0L665.78706 746.151901 665.78706 746.151901zM661.623227 957.686688 661.623227 826.417993l-59.546188 0L661.623227 957.686688z" p-id="4539" fill="none" stroke="white" stroke-width="20"></path>
+			 <!-- <path d="M960 256q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm832 928v352q0 22-20 30-8 2-12 2-12 0-23-9l-93-93q-119 143-318.5 226.5t-429.5 83.5-429.5-83.5-318.5-226.5l-93 93q-9 9-23 9-4 0-12-2-20-8-20-30v-352q0-14 9-23t23-9h352q22 0 30 20 8 19-7 35l-100 100q67 91 189.5 153.5t271.5 82.5v-647h-192q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h192v-163q-58-34-93-92.5t-35-128.5q0-106 75-181t181-75 181 75 75 181q0 70-35 128.5t-93 92.5v163h192q26 0 45 19t19 45v128q0 26-19 45t-45 19h-192v647q149-20 271.5-82.5t189.5-153.5l-100-100q-15-16-7-35 8-20 30-20h352q14 0 23 9t9 23z" fill="none" stroke="white" stroke-width="20"/> -->
+		</svg>
+		<!-- <svg width="300" height="300" viewBox="0 0 1500 2000">
+    <path d="M960 256q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm832 928v352q0 22-20 30-8 2-12 2-12 0-23-9l-93-93q-119 143-318.5 226.5t-429.5 83.5-429.5-83.5-318.5-226.5l-93 93q-9 9-23 9-4 0-12-2-20-8-20-30v-352q0-14 9-23t23-9h352q22 0 30 20 8 19-7 35l-100 100q67 91 189.5 153.5t271.5 82.5v-647h-192q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h192v-163q-58-34-93-92.5t-35-128.5q0-106 75-181t181-75 181 75 75 181q0 70-35 128.5t-93 92.5v163h192q26 0 45 19t19 45v128q0 26-19 45t-45 19h-192v647q149-20 271.5-82.5t189.5-153.5l-100-100q-15-16-7-35 8-20 30-20h352q14 0 23 9t9 23z" fill="none" stroke="white" stroke-width="20"/> -->
+  </svg>
+	</div>
+	
+	<script src="../js/anime.min.js"></script>
+	<script>
+		var blue = anime({
+			targets:'.blue',
+			translateY:200,
+			scale: 0.8,
+			translateX: window.innerWidth*0.8,
+			rotate: '9.125turn',
+			duration: 1200,
+			easing: 'easeInOutCubic',
+			autoplay:false
+		})
+		var green = anime({
+			targets:'.green',
+			translateY: {
+				value:250,
+			},
+			rotate: {
+				value:'45',
+				duration:1800,
+				easing:'easeInOutQuart'
+			},
+			translateX: {
+				value:300
+			},
+			scale:0.8,
+			duration:1800,
+			delay:1000,
+		})
+		document.querySelector('.begin-ami').onclick = blue.restart;
+
+
+		var filesScanned = { count:0, infected:0}
+		var scanning = anime({
+			targets: filesScanned,
+			count:1000,
+			infected:8,
+			round:1,
+			autoplay:false,
+			update: function() {
+				var scanCount = document.querySelector('.scan-count');
+				scanCount.innerHTML = filesScanned.count;
+
+				var infectedCount = document.querySelector('.infected-count')
+				infectedCount.innerHTML = filesScanned.infected;
+			}
+		})
+		document.querySelector('#begin').onclick = scanning.restart;
+
+
+		// 方块squarie
+		var basicTimeline = anime.timeline({
+			direction:'alternate', //方向
+			loop:2, //回路
+			autoplay:false, //是否自动播放
+		})
+		basicTimeline.add({
+			targets:'.square',
+			translateY:200
+		}).add({
+			targets:'.brown',
+			translateY:100
+		}).add({
+			targets:'.orange',
+			translateY:0
+		})
+		var offsetTimeline = anime.timeline({
+			direction:'alternate',
+			loop:2,
+			autoplay:false
+		})
+		offsetTimeline.add({
+			targets:'.square',
+			translateY:200
+		}).add({
+			targets:'.orange',
+			offset:'+=1000',
+			translateY:100
+		}).add({
+			targets:'.brown',
+			offset:'*=2',
+			translateY:0
+		})
+		document.querySelector('.Basic').onclick=basicTimeline.restart;
+		document.querySelector('.Offset').onclick=offsetTimeline.restart;
+		console.log(offsetTimeline.restart)
+		// 放松功能
+		//linear, easeIn, easeOut和easeInOut.
+		// 三个弹性方程叫easeInElastic,easeOutElastic,easeInOutElastic,elasticity参数来控制弹性，值elasticity可以在0到100之间
+		// EaseIn方程回事从零开始的属性的值变化
+		// EaseOut方程从最大速率变化开始减速该属性的值的变化。这意味着坐标的变化在一开始就会很快结果很慢。
+		// EaseInOut方程加速了开始的速率变化，并在最后减速。
+		anime.easings['tancube'] = function(t) {
+			return Math.pow(Math.tan(t*Math.PI/4),3);
+		}
+		anime.easings['tansqr'] = function(t) {
+			return Math.pow(Math.tan(t*Math.PI/4),1);
+		}
+		var tanCubeSequence = anime({
+			targets:'.square1',
+			translateX:'75vw',
+			duration:2000,
+			easing:'tancube',
+			autoplay:false
+		});
+		var tanSqrSequence = anime({
+			targets:'.square2',
+			translateX:'75vw',
+			duration:2000,
+			easing:'tansqr',
+			autoplay:false
+		})
+
+		document.querySelector('.tancube').onclick=tanCubeSequence.restart;
+		document.querySelector('.tansqr').onclick=tanSqrSequence.restart;
+	
+
+	</script>
+	<script>
+		// svg路径1
+		// var path = anime.path('path');
+		// var easings = ['linear'];
+		// var motionPath = anime({
+		// 	targets:'.svg-squre',
+		// 	translateX:path('x'),
+		// 	translateY:path('y'),
+		// 	rotate:path('angle'),
+		// 	easing: function(el,i) {
+		// 		return easings[i]
+		// 	},
+		// 	duration:4000,
+		// 	loop:true
+		// })
+
+		//svg
+		var lineDrawing = anime({
+			targets:'path',
+			strokeDashoffset:[anime.setDashoffset, 0],
+			easing: 'easeInOutCubic',
+			auration:6000,
+			begin: function(anim) {
+		    document.querySelector('path').setAttribute("stroke", "black");
+		    document.querySelector('path').setAttribute("fill", "none");
+		  },
+			complete: function(anim) {
+				document.querySelector('path').setAttribute('fill', 'blue');
+			}
+		})
+	</script>
+</body>
+</html>

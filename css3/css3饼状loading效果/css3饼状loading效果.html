@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3饼状loading效果</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html,body{
+			height: 100%;
+		}
+		body{
+			display:-webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			max-width:640px;
+			margin: auto;
+			background-color: #f8f8f8;
+			justify-content: center;
+			align-items: center;
+		}
+		.pre-loading{
+			display:-webkit-box;
+			display: -webkit-flex;
+			display:flex;
+			-webkit-justify-content:center;
+			justify-content: center;
+			-webkit-align-items:center;
+			align-items: center;
+			position: relative;
+		}
+		.pre-loading:after{
+			content: "";
+			position: absolute;
+			left:-16px;
+			top:-16px;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			border: 2px solid #f80;
+			border-left-color: transparent;
+			animation: spin1 1s linear infinite;
+		}
+		.circle{
+			width: 90px;
+			height: 90px;
+			border-radius: 50%;
+			background-color: #f80;
+			background-image: linear-gradient(to right, transparent 50%, #f40 0);
+			position: relative;
+		}
+		.circle::before {
+		  content: '';
+		  display: block;
+		  margin-left: 50%;
+		  height: 100%;
+		  border-radius: 0 100% 100% 0 / 50%;
+		  background-color: inherit;
+		  transform-origin: left;
+		  animation: spin 3s  linear infinite, bg 3s step-end infinite;
+		}
+
+		@keyframes spin {
+		  to { transform: rotate(.5turn); }
+
+		}
+		@keyframes bg {
+			/*25%{background: #f80;}*/
+		  50% { background: #f40; }
+		}
+		@keyframes spin1{
+			0%{
+				-webkit-transform: rotate(0deg);
+				-moz-transform: rotate(0deg);
+				-ms-transform: rotate(0deg);
+				-o-transform: rotate(0deg);
+				transform: rotate(0deg);
+				
+			}
+			100%{
+				-moz-transform: rotate(360deg);
+				-ms-transform: rotate(360deg);
+				-o-transform: rotate(360deg);
+				transform: rotate(360deg);
+				
+			}
+		}
+		
+		/*.circle::after {
+		  z-index: 1;
+		  content: '';
+		  display: block;
+		  background: green;
+		  position: absolute;
+		  left: 50%;
+		  top: 0;
+		  height: 100%;
+		  border-radius: 0 100% 100% 0 / 50%;
+		  width: 50%;
+		  transform-origin: left;
+		}
+		.circle::before {
+		  content: '';
+		  display: block;
+		  z-index: 10;
+		  position: absolute;
+		  top: 0;
+		  width: 50%;
+		  left: 50%;
+		  height: 100%;
+		  border-radius: 0 100% 100% 0 / 50%;
+		  background-color: #f40;
+		  transform-origin: left;
+		  animation: spin 1s linear infinite, bg 3s step-end infinite;
+		}
+		@-webkit-keyframes spin {
+
+			to {
+				transform: rotate(.5turn)
+			}
+		}
+		@-o-keyframes spin {
+
+			to {
+				transform: rotate(.5turn)
+			}
+		}
+		@-moz-keyframes spin {
+
+			to {
+				transform: rotate(.5turn)
+			}
+		}
+		@keyframes spin {
+
+			to {
+				transform: rotate(.5turn)
+			}
+		}
+
+		@-webkit-keyframes bg {
+			50%{
+				background:green;
+			}
+		}
+		@-o-keyframes bg {
+			50%{
+				background:green;
+			}
+		}
+		@-moz-keyframes bg {
+			50%{
+				background:green;
+			}
+		}
+		@keyframes bg {
+			50%{
+				background:green;
+			}
+		}*/
+	</style>
+</head>
+<body>
+	<div class="pre-loading">
+		<div class="circle"></div>
+	</div>
+</body>
+</html>

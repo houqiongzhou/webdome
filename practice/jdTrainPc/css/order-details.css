@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+/*detail-item*/
+.detail-item{
+	border: 1px solid #ddd;
+	margin-bottom: 20px;
+}
+.tranis-check{
+	padding:20px;
+}
+.item-title{
+	overflow: hidden;
+	border-bottom: 1px solid #ddd;
+	height: 46px;
+	line-height: 46px;
+}
+
+.item-title h3{
+	float: left;
+	padding-left:12px;
+	font-size: 16px;
+	color: #222;
+}
+.item-title i{
+	float: left;
+	width:40px;
+	height: 46px;
+	font-size: 25px;
+	color: #fff;
+	text-align: center;
+	background-color: #64a5fb;
+	font-family: "arial";
+}
+.check-info-box{
+	border-right: 1px dashed #d0d0d0;
+	padding:0 18px;
+	width:688px;
+}
+/*车次信息*/
+.h-tranis{
+	zoom: 1;
+	float: left;
+	margin-bottom: 20px;
+	display: inline;
+	text-align: center;
+	font-family: "Microsoft yahei";
+}
+.h-tranis h4{
+	font-size: 20px;
+	height: 58px;
+	line-height: 64px;
+	color: #666;
+   white-space: nowrap;
+}
+.h-tranis .time{
+	font-size: 30px;
+	color: #222;
+	visibility: visible;
+}
+.h-tranis .date{
+	font-size: 12px;
+	color: #999;
+	margin-top: 6px;
+}
+.h-form{
+	margin-left:100px;
+}
+.h-car{
+	float: left;
+	text-align: center;
+	width:254px;
+	margin-top:12px;
+}
+.h-to .addday{
+	font-size:14px;
+	vertical-align: top;
+	color: #666;
+}
+.h-car-number{
+	display: block;
+	height: 40px;
+	line-height: 47px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.h-car .during{
+	margin-top:4px;
+	color: #999;
+}
+.icon-trains{
+	height: 27px;
+	width: 140px;
+	margin: auto;
+	background-image: url(../images/icon_od.png);
+	background-position: 0px -154px;
+}
+
+/*ticket-single*/
+.ticket-box{
+	padding-top:14px;
+	width:466px;
+	text-align: center;
+}
+.ticket-single{
+	margin: auto;
+	width:276px;
+	height: 90px;
+	border: 2px solid #ddd;
+	padding:5px 0;
+}
+.icon-ticket{
+	width:42px;
+	height: 42px;
+	margin:15px 20px;
+	background-image: url(../images/icon_od.png);
+	background-position: 0px -110px;
+
+}
+.single-price{
+	width: 190px;
+	border-left: 1px dashed #d0d0d0;
+	height: 75px;
+	text-align: center;
+}
+.single-price .seat{
+	margin-top: 16px;
+}
+.single-price p{
+	height: 26px;
+}
+.single-price p.text-price{
+	font-size: 16px;
+}
+/*乘客信息*/
+.table-list{
+	padding:12px;
+	width: 100%;
+	border-collapse: collapse;
+}
+.table-list tr th,.table-list tr td{
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-weight: normal;
+}
+.table-list tr td{
+	border-top: 1px solid #ddd;
+}
+
+/*联系人信息*/
+.people-box{
+	width:100%;
+	padding:12px;
+}
+.people-box li{
+	min-width:120px;
+	float: left;
+	padding-right: 10px;
+}
+
+/*按钮组*/
+.total-box{
+	margin-top:10px;
+	padding-left:12px;
+}
+.total-box p{
+	font-size:14px;
+	line-height: 24px;
+	color:#969696;
+}
+.total-box p .total-price{
+	font-size: 22px;
+	color:#f79700;
+}
+.money{
+	padding-left:20px;
+}
+.modify-order{
+	margin-top:10px;
+	height: 48px;
+	line-height: 48px;
+	min-width: 98px;
+	text-align: center;
+	margin-right: 10px;
+	font-size: 16px;
+	color: #2577e3 !important;
+}

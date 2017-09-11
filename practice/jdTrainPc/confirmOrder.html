@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建订单</title>
+	<!-- css -->
+	<link rel="stylesheet" href="css/lib/normalize.css">
+	<link rel="stylesheet" href="css/lib/city.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/confirm-order.css">
+</head>
+<body>
+	<header  class="header" id="header">
+		<div class="header-top  clearfix">
+			<div class="container clearfix">
+				<a href="#" class="trunk-home pull-left"> <i class="icon icon-return"></i>返回专区首页
+				</a>
+				<div class="header-nav pull-right clearfix">
+					<span>xf291，欢迎您。</span>
+					<a href="#">[退出]</a>
+					<a href="#">我的订单</a> 
+					<a href="#">账户中心</a> 
+					<a href="#">意见反馈</a> 
+					<a class="qrcode-btn pull-right">
+						<img alt="扫码关注疗养宝" src="images/icon_qrcode.png">
+						<span class="qrcode"><img width="165" height="165" src="images/liaoyang_qrcode.jpg"></span>
+					</a>
+					<span>扫码关注疗养宝</span>
+				</div>
+			</div>
+		</div>
+		<div class="head-brand clearfix">
+			<div class="container clearfix">
+				<h1 class="pull-left">
+					<a href="#">
+						<img src="images/logo.png" alt="logo">
+					</a>
+				</h1>
+				<div class="step-box pull-right">
+					<div class="icon-od step-line step-line-one"></div>
+					<div class="step-text">
+						<span class="active">填写订单</span>
+						<span>确认订单</span>
+						<span>支付订单</span>
+						<span>订单完成</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header End -->
+	<div class="container confirm-box clearfix">
+		<div class="confirm-form pull-left">
+			<div class="confirm-item">
+				<div class="item-title bgc">
+					<h3>填写并核对信息</h3>
+				</div>
+				<div class="check-info-box clearfix">
+					<div class="h-top">
+						<strong class="pull-left">车次信息</strong>
+						<a href="searchList.html" class="pull-right break">[返回重新选择]</a>
+					</div>
+					<div class="h-tranis h-form">
+						<h4>北京西</h4>
+						<p class="time">13:00</p>
+						<p class="date">2017-05-29</p>
+					</div>
+					<div class="h-car">
+						<b class="h-car-number">G529</b>
+						<div class="icon-od icon-trains"></div>
+						<p class="during">7小时38分钟</p>
+					</div>
+					<div class="h-tranis h-to">
+						<h4>北京西</h4>
+						<p class="time">10:34 <em class="addday">+1天</em></p>
+						<p class="date">2017-05-29</p>
+					</div>
+				</div>
+			</div>
+			<!-- 车次信息End -->
+			<div class="confirm-item">
+				<div class="item-title">
+					<i class="title-number">1</i>
+					<h3>坐席信息</h3>
+				</div>
+				<div class="ticket-info-box">
+					<div class="text-tips"><i class="icon-od icon-tips"></i>由于12306原因，存在展示坐席与实际出票坐席名称不一致情况，以实际出票显示为准。</div>
+				</div>
+				<ul class="ticket-type">
+					<li class="type-item check" data-seat="true">
+						<i class="icon-od icon-check"></i>
+						<i class="icon-od icon-trains-t"></i>
+						<div class="type-area">
+							<p class="ticket-class">软卧</p>
+							<p class="text-price">
+								<dfn>￥</dfn>
+								<span>44436</span>
+							</p>
+						</div>
+						<span class="type-item-lable bgc-ample">剩余12张</span>
+					</li>
+					<li class="type-item" data-seat="false">
+						<i class="icon-od icon-check"></i>
+						<i class="icon-od icon-trains-t"></i>
+						<div class="type-area">
+							<p class="ticket-class">软卧</p>
+							<p class="text-price">
+								<dfn>￥</dfn>
+								<span>436</span>
+							</p>
+						</div>
+						<span class="type-item-lable bgc-gray">无票</span>
+					</li>
+					<li class="type-item" data-seat="true">
+						<i class="icon-od icon-check"></i>
+						<i class="icon-od icon-trains-t"></i>
+						<div class="type-area">
+							<p class="ticket-class">软卧</p>
+							<p class="text-price">
+								<dfn>￥</dfn>
+								<span>436</span>
+							</p>
+						</div>
+						<span class="type-item-lable">剩余12张</span>
+					</li>
+				</ul>
+			</div>
+			<!-- 坐席信息End -->
+			<div class="confirm-item">
+				<div class="item-title">
+					<i class="title-number">2</i>
+					<h3>乘客信息</h3>
+					<div class="select-people pull-left">
+						<span class="pull-left term-hd">常用乘客：</span>
+						<div class="select-term pull-left">
+							<label class="select-people-label">
+								<input type="checkbox"> 张三
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="check-info-box people-form">
+					<div class="temple-item">
+						<div class="h-top clearfix">
+							<i class="icon-od icon-ticket pull-left">1</i>
+							<strong class="pull-left">成人票</strong>
+							<a href="javascript:;" class="clear pull-left" onclick="removeTemplate(this)">删除</a>
+						</div>
+						<ul class="form-box">
+							<li class="input-group clearfix">
+								<label class="item-label"><i>*</i>姓名：</label>
+								<div class="pull-left">
+									<input type="text" class="item-input user-name" placeholder="请按照购票所持证件填写乘客信息">
+									<a href="javascript:;" class="form-text-tips">
+										<span class="sm">说明</span>
+										<div class="common-toptips toptips-max">
+											<i class="bdnuarrow-bottom"><em></em><b></b></i>
+											<div class="toptips-content">
+												<p>1.乘客姓名与证件号码必须与乘车时所使用证件上的名字和号码一致，如有中文名，请填写中文名。</p>
+												<p>2.确认姓名中生僻字无法输入时，可用生僻字拼音或同音字替代。例如：“王鬳”可输入为“王yan”。</p>
+												<p>3.姓名较长，汉字与英文字符合计超过30个（1个汉字算2个字符）的，需按姓名中第一个汉字或英文字符开始按顺序连续输入30个字符（空格字符不输入），其中英文字符输入时不区别大小写。</p>
+												<p>4.姓名中有“.”或“•”时，请仔细辨析身份证件原件上的“.”或“•”，准确输入。</p>
+											</div>
+										</div>
+									</a>
+									<p class="error-tip">请填写正确信息</p>
+								</div>
+								<label class="label-save">
+									<input type="checkbox" checked="checked">保存为常用乘客
+								</label>
+							</li>
+							<li class="input-group clearfix">
+								<label class="item-label"><i>*</i>证件信息：</label>
+								<div class="pull-left">
+									<select  id="select-sel" class="item-sel">
+										<option value="1">身份证</option>
+                              <option value="B">护照</option>
+                              <option value="G">台湾通行证</option>
+                              <option value="C">港澳通行证</option>
+									</select>
+									<input type="text" class="item-input input-middle" placeholder="证件号码">
+									<p class="error-tip">请填写正确信息</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="buttons clearfix">
+						<a href="javascript:;" class="btn btn-entity" id="add-passenger">+ 添加乘客</a>
+						<span class="add-tips-text">己添加<i class="already-add">1</i>位乘客，还可以添加<i class="remain-add">4</i>位乘客</span>
+					</div>
+				</div>
+			</div>
+			<!-- 乘客信息End -->
+			<div class="confirm-item">
+				<div class="item-title">
+					<i class="title-number">3</i>
+					<h3>联系人信息</h3>
+				</div>
+				<ul class="form-box contacts">
+					<li class="input-group clearfix">
+						<label class="item-label"><i>*</i>姓名：</label>
+						<div class="pull-left">
+							<input type="text" class="item-input" placeholder="中文名/英文名">
+							<p class="error-tip">请填写正确信息</p>
+						</div>
+					</li>
+					<li class="input-group clearfix">
+						<label class="item-label"><i>*</i>手机号码：</label>
+						<div class="pull-left">
+							<input type="text" class="item-input" placeholder="用于接收预订出票信息，非常重要">
+							<p class="error-tip">请填写正确信息</p>
+						</div>
+					</li>
+				</ul>
+				<div class="tb-text-tips margin-b-36"><i class="icon-od"></i>特别提醒：京东火车票仅支持窗口/自助取票机取票，暂不支持快递配送车票，敬请谅解</div>
+			</div>
+			<!-- 联系人信息 End -->
+			<div class="confirm-submit submit-box">
+				<label>
+					<input type="checkbox" checked="checked">
+					我已完成阅读<a href="userAgrement.html">《火车票平台用户协议》</a>并接受所有条款
+				</label>
+				<form action="orderDetails.html" class="pull-right">
+					<input type="submit" class="btn input-btn pull-right" id="sub-order" value="同意以上条款，提交订单">
+				</form>
+			</div>
+		</div>
+		<div class="aside pull-right">
+			<ul class="total-box">
+				<li class="price-title icon-od"></li>
+				<li class="price-list">价格清单</li>
+				<li class="total-money">
+					<p class="price-info">
+						<span class="con-type">无座</span>
+						<em>￥265<b>×1</b></em>
+					</p>
+					<p class="ticket-secure">
+						<span class="con-type">代购费</span>
+						<em>￥26<b>×1</b></em>
+					</p>
+				</li>
+				<li class="pay">
+					<span>应付总额</span>
+					<em class="total-price">￥82.5</em>
+				</li>
+				<li class="note">
+					<p>因卧铺上/中/下随机分配，订单页结算价为参考价格，差价部分将在1-15个工作日退回您的支付账户。</p>
+				</li>
+			</ul>
+          <div class="k-warn-info bgc">
+              <h5 class="k-warn-title">购票须知</h5>
+              <p><b>取票方式：</b>
+                  <br>自取票
+              </p>
+              <p><b>购票时间：</b>
+                  <br>6:00-22:50完成支付，2小时内通知出票结果。
+                  <br>22:50-次日6:00完成支付，次日6:00以后通知出票结果。
+              </p>
+              <p><b>短信通知：</b>
+                  <br>购票后我们将短信通知您，如因运营商网关延迟可能导致您无法及时接收短信，请到我的订单中跟踪出票情况。
+              </p>
+              <p><b>退票说明：</b>
+                  <br>1.在线退票退款，7个工作日左右返回您的支付账户；
+                  <br>2.车站窗口退票或者改签，退款在15个工作日左右返回原支付账户；
+                  <br>3.已取纸质票无法在线退票，请您携带购票证件前往车站办理退票；
+                  <br>4.开车前49小时以上，退票手续费5%；
+                  <br>5.开车前25-49小时之间，退票手续费10%；
+                  <br>6.开车前25小时内，退票手续费20%；
+                  <br>7.最终退款以铁路局实退为准，退票手续费最低收取2元；
+                  <br>8. 使用优惠券退款规则：
+                  <br>8.1  整单全部金额退款（无因为卧铺退还差价且无手续费扣除）：退回全部在线支付金额和优惠券；
+                  <br>8.2  退款金额少于订单全部金额时，根据在线支付金额与使用优惠券比例：
+                  <br>8.2.1 使用东券：按比例退回在线支付部分，东券部分不予返还；
+                  <br>8.2.2 使用京券：优先退回京券部分，京券部分以京豆形式等同返还；
+              </p>
+          </div>
+		</div>
+	</div>
+	<!-- prolem End -->
+	<!-- container End -->
+	<div class="footer">
+		<div class="container">
+			<p>疗养专线：400-066-9393，服务时间：周一到周五8:00-23:00，周六周日8:00-20:00</p>
+			<p><i class="icon icon-copy"></i>京公海网安备110108000889 | 京ICP备15057296号</p>
+			<p>Copyright © 幸福时代网络科技（北京）股份有限公司</p>
+		</div>
+	</div>
+	<!-- footer End -->
+	
+	<!-- script -->
+	<script src="script/lib/jquery-3.1.1.min.js"></script>
+	<script src="script/publice.js"></script>
+	<script src="script/confirm-order.js"></script>
+
+</body>
+</html>

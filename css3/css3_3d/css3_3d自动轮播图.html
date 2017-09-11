@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3_3d自动轮播图</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			border: 0;
+		}
+		html,body{
+			height: 100%;
+		}
+		body{
+			display:-webkit-box;
+			display:-webkit-flex;
+			display: flex;
+			-webkit-justify-content:center;
+			justify-content: center;
+			-webkit-align-items:center;
+			align-items:center;
+			perspective: 300px;
+			-webkit-perspective-origin: 770px 176px;
+			perspective-origin: 770px 176px;
+		}
+
+		/*slide-box*/
+		.slide-box{
+			width: 278px;
+			height: 150px;
+			--webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-transform: translateZ(-180px) rotateY(0);
+			-moz-transform: translateZ(-180px) rotateY(0);
+			-ms-transform: translateZ(-180px) rotateY(0);
+			-o-transform: translateZ(-180px) rotateY(0);
+			transform: translateZ(-180px) rotateY(0);
+			/*动画*/
+			-webkit-animation:carousel 10s infinite cubic-bezier(1, 0.015, 0.295, 1.225) forwards;
+			animation:carousel 10s infinite cubic-bezier(1, 0.015, 0.295, 1.225) forwards;
+		}
+		.slide-box img{
+			position: absolute;
+			left:0;
+			top:0;
+			width: 278px;
+			height: 150px;
+			border-radius: 3px;
+		}
+		.slide-box img:nth-child(1) {
+			-webkit-transform: rotateY(0) translateZ(180px) ;
+			-moz-transform: rotateY(0) translateZ(180px) ;
+			-ms-transform: rotateY(0) translateZ(180px) ;
+			-o-transform: rotateY(0) translateZ(180px) ;
+			transform: rotateY(0) translateZ(180px) ;
+		}
+		.slide-box img:nth-child(2) {
+			-webkit-transform: rotateY(90deg) translateZ(180px) ;
+			-moz-transform: rotateY(90deg) translateZ(180px) ;
+			-ms-transform: rotateY(90deg) translateZ(180px) ;
+			-o-transform: rotateY(90deg) translateZ(180px) ;
+			transform: rotateY(90deg) translateZ(180px) ;
+			
+		}
+		.slide-box img:nth-child(3) {
+			-webkit-transform: rotateY(180deg) translateZ(180px);
+			-moz-transform: rotateY(180deg) translateZ(180px);
+			-ms-transform: rotateY(180deg) translateZ(180px);
+			-o-transform: rotateY(180deg) translateZ(180px);
+			transform: rotateY(180deg) translateZ(180px);
+			
+		}
+		.slide-box img:nth-child(4) {
+			-webkit-transform: rotateY(270deg) translateZ(180px);
+			-moz-transform: rotateY(270deg) translateZ(180px);
+			-ms-transform: rotateY(270deg) translateZ(180px);
+			-o-transform: rotateY(270deg) translateZ(180px);
+			transform: rotateY(270deg) translateZ(180px);
+			
+		}
+		@-webkit-keyframes carousel {
+			0%,17.5%{
+				-webkit-transform: translateZ(-180px) rotateY(-90deg);
+				-moz-transform: translateZ(-180px) rotateY(-90deg);
+				-ms-transform: translateZ(-180px) rotateY(-90deg);
+				-o-transform: translateZ(-180px) rotateY(-90deg);
+				transform: translateZ(-180px) rotateY(-90deg);
+				
+			}
+			25%,52.5%{
+				-webkit-transform: translateZ(-180px) rotateY(180deg);
+				-moz-transform: translateZ(-180px) rotateY(180deg);
+				-ms-transform: translateZ(-180px) rotateY(180deg);
+				-o-transform: translateZ(-180px) rotateY(180deg);
+				transform: translateZ(-180px) rotateY(180deg);
+			}
+			72.5%,50%{
+				-webkit-transform: translateZ(-180px) rotateY(270deg);
+				-moz-transform: translateZ(-180px) rotateY(270deg);
+				-ms-transform: translateZ(-180px) rotateY(270deg);
+				-o-transform: translateZ(-180px) rotateY(270deg);
+				transform: translateZ(-180px) rotateY(270deg);
+			}
+			82.5%,100%{
+				-webkit-transform: translateZ(-180px) rotateY(360deg);
+				-moz-transform: translateZ(-180px) rotateY(360deg);
+				-ms-transform: translateZ(-180px) rotateY(360deg);
+				-o-transform: translateZ(-180px) rotateY(360deg);
+				transform: translateZ(-180px) rotateY(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="slide-box">
+		<img src="image/01.jpg">
+		<img src="image/02.jpg">
+		<img src="image/03.jpg">
+		<img src="image/04.jpg">
+	</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+可以使用npm或bower通过运行以下命令来执行安装：
+npm install animejs
+bower install animejs
