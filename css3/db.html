@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>db</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	a{
+		color: #80007c;
+		text-decoration: none;
+	}
+	.section{
+		padding:40px 0;
+		text-align: center;
+	}
+	/*==============背景旋转动画================*/
+	.db-box{
+		width: 120px;
+		height: 120px;
+		margin: auto;
+		position: relative;
+	}
+	.db{
+		width:120px;
+		height: 120px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		background-color: #00B51D;
+		color: #fff;
+		font-size: 60px;
+		/*position: relative;*/
+		z-index: 10;
+	}
+	.rotate:after,.rotate:before,.db-box:after{
+		content:'';
+		position: absolute;
+		left:0;
+		top:0;
+		width:120px;
+		height: 120px;
+		border-radius: 60% 30% 35%;
+		background-color:green;
+	}
+	.db-box:after{
+		background-color:#fed55f;
+		z-index: -3;
+		transform: rotate(20deg);
+		-webkit-animation: fullRotation 10s ease-out infinite;
+       animation: fullRotation 10s ease-out infinite;
+	}
+	.rotate:before{
+		background-color:#43abe8;
+		z-index: -2;
+		transform: rotate(64deg) translate(-3px,-2px);
+		-webkit-animation: fullRotation1 10s 3s ease-out infinite;
+       animation: fullRotation1 10s 3s ease-out infinite;
+	}
+	.rotate:after{
+		background-color:#fc9fc5;
+		z-index: -1;
+		transform: rotate(-18deg);
+		-webkit-animation: fullRotation2 10s 5s ease-out infinite;
+       animation: fullRotation2 10s 5s ease-out infinite;
+	}
+	@-webkit-keyframes fullRotation {
+		0%{
+			transform: rotate(20deg) translate3d(0, 0, 0);
+		}
+		25%{
+			transform: rotate(100deg)  translate3d(0px, -2px, 4px);
+		}
+		50%{
+			transform: rotate(180deg) scale(1.1,1.1) translate3d(0px, 4px, -4px);
+			border-radius: 60% 40% 35%;
+		}
+		75%{
+			transform: rotate(240deg) scale(1,1) translate3d(0px, -2px, 0px);
+		}
+		100%{
+			transform: rotate(360deg) translate3d(0, 0, 0);
+			border-radius: 60% 30% 35%;
+		}
+	}
+	@-webkit-keyframes fullRotation1 {
+		0%{
+			transform: rotate(64deg)  translate3d(0, 0, 0);
+		}
+		50%{
+			transform: rotate(-180deg)  translate3d(0, -2px, 8px);
+		}
+		100%{
+			transform: rotate(-360deg) translate3d(0, 0, 0);
+		}
+	}
+	@-webkit-keyframes fullRotation2 {
+		0%{
+			transform: rotate(-18deg) translate3d(0, 0, 0);
+		}
+		50%{
+			transform: rotate(-120deg)  translate3d(0, 2px, 0);
+		}
+		75%{
+			transform: rotate(-240deg) translate3d(0, -4px, 5px)
+		}
+		100%{
+			transform: rotate(-18deg)  translate3d(0, 0, 0);
+		}
+	}
+</style>
+<body>
+	<section class="section">
+		<div class="db-box">
+			<div class="db rotate">豆</div>
+		</div>
+	</section>
+</body>
+</html>
