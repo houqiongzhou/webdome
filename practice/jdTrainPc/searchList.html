@@ -83,7 +83,7 @@
 				</a>
 				<div class="week-box pull-left" id="js-calendar">
 					<ul class="week-ul">
-						<li  data-val="2017-09-11" class="on">
+						<!-- <li  data-val="2017-09-11" class="on">
 							<p>09-11</p>
 							<h4>周一</h4>
 						</li>
@@ -114,7 +114,7 @@
 						<li data-val="2017-09-18" >
 							<p>09-18</p>
 							<h4>周日</h4>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -478,15 +478,94 @@
 		<script src="script/sear-list.js"></script>
 		<script>
 			$(function() {
-				// function getCountDays() {
-				// 	  var curDate = new Date();
-				// 	  var curMonth = curDate.getMonth();
-				// 	   curDate.setMonth(curMonth + 1);
-				// 	   curDate.setDate(0);
-				// 	   return curDate.getDate();
-				// }
+				function getCountDays() {
+					  var curDate = new Date();
+					  var curMonth = curDate.getMonth();
+					   curDate.setMonth(curMonth + 1);
+					   curDate.setDate(0);
+					   return curDate.getDate();
+				}
+
+				// 下一个月
+				function getNextMonth(date) {
+	            var arr = date.split('-');
+	            var year = arr[0]; //获取当前日期的年份
+	            var month = arr[1]; //获取当前日期的月份
+	            var day = arr[2]; //获取当前日期的日
+	            var days = new Date(year, month, 0);
+	            days = days.getDate(); //获取当前日期中的月的天数
+	            var year2 = year;
+	            var month2 = parseInt(month) + 1;
+	            if (month2 == 13) {
+	                year2 = parseInt(year2) + 1;
+	                month2 = 1;
+	            }
+	            var day2 = day;
+	            var days2 = new Date(year2, month2, 0);
+	            days2 = days2.getDate();
+	            if (day2 > days2) {
+	                day2 = days2;
+	            }
+	            if (month2 < 10) {
+	                month2 = '0' + month2;
+	            }
+	        
+	            var t2 = year2 + '-' + month2 + '-' + day2;
+	            return t2;
+	         }
+	         
+
+			   var curDate = new Date();
+			   var curYear = curDate.getFullYear();
+			   var curMonth = (curDate.getMonth() + 1 > 9) ? curDate.getMonth() + 1 : '0' + (curDate.getMonth() + 1);
+			   var curDay = (curDate.getDate() > 9) ? curDate.getDate() : '0' + (curDate.getDate() + 1);
+			   var maxActiveDate = 60;
+			   
+			   var daysTextBox = $('#js-calendar').find('ul');
+			  
+			   // var now = new Date(curDate.getFullYear(), curDate.getMonth(), 1);
+
+			   for(var i = curDay; i < maxActiveDate; i++) {
+			  		if(i > getCountDays()) {
+	            var days = new Date(curYear, curMonth, 0);
+	            days = days.getDate(); //获取当前日期中的月的天数
+	            var year2 = curYear;
+	            var month2 = parseInt(curMonth) + 1;
+	            if (month2 == 13) {
+	                year2 = parseInt(year2) + 1;
+	                month2 = 1;
+	            }
+	            var day2 = curDay;
+	            var days2 = new Date(year2, month2, 0);
+	            days2 = days2.getDate();
+	            if (day2 > days2) {
+	                day2 = days2;
+	            }
+	            if (month2 < 10) {
+	                month2 = '0' + month2;
+	            }
+		  			var html = '';
+		  			html += '<li data-val="'+ year2 +'-' + month2 + '-' + i +'" >'+
+							'<p>'+ month2 + '-' + i +'</p>'+
+							'<h4>周二</h4>'+
+							'</li>';
+		  			daysTextBox.append(html);
+			  		} else {
+			  			var html = '';
+			  			html += '<li data-val="'+ curYear +'-' + curMonth + '-' + i +'" >'+
+								'<p>'+ curMonth + '-' + i +'</p>'+
+								'<h4>周二</h4>'+
+								'</li>';
+						// console.log(a[week])
+			  			daysTextBox.append(html);
+			  			if(curDay == i) {
+							daysTextBox.find('li').addClass('on')
+						}
+			  		}
+			   }
 
 			})
+
 		</script>
 </body>
 </html>

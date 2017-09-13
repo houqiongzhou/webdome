@@ -18,22 +18,34 @@
 	/*
 	*7天日历
 	*/
+	var l = !1;
+   var m = !1;
 
 	//左右切换
 	var i = $('#js-calendar');
-	$('#next-day').on('click', function(a) {
-		 a.preventDefault();
+	$('#next-day').on('click', function(event) {
+		 event.preventDefault();
 		var b = i.find('li.on').next().attr('data-val');
-
-		x(b)
+		if(b == null) {
+			return;
+		}
+		x(b);
 	});
-	$('#prev-day').on('click', function(a) {
-		 a.preventDefault();
+	$('#prev-day').on('click', function(event) {
+		 event.preventDefault(); 
 		var b = i.find('li.on').prev().attr('data-val');
+		if(b == null) {
+			return;
+		}
 		x(b)
-
 		
 	});
+	$('#js-calendar').on('click','ul li', function() {
+		if ($(this).hasClass('on')) return !1;
+      var a = $(this).attr("data-val");
+      x(a)
+      
+	})
 	function x(val) {
 		var b = i.find('[data-val="' + val + '"]');
         var c = 442;
@@ -47,14 +59,12 @@
             g = 0;
          }
         var h = g * d;
-        i.find("ul").stop(!0, !0).animate({
+        i.find('ul').stop(!0, !0).animate({
             marginLeft: - h
         }, 500);
+        b.addClass('on').siblings().removeClass('on');
 
-        b.addClass("on").siblings().removeClass("on")
 	}
-
-
 
 	/*
 	*筛选条件

@@ -164,9 +164,10 @@
 }
 .week-box .week-ul li{
 	float: left;
-	width:147px;
+	width:148px;
 	height: 79px;
 	text-align: center;
+	cursor: pointer;
 	/*border-right:1px solid #f7f7f7;*/
 }
 .week-box .week-ul li p{
