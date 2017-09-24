@@ -478,93 +478,44 @@
 		<script src="script/sear-list.js"></script>
 		<script>
 			$(function() {
-				function getCountDays() {
-					  var curDate = new Date();
-					  var curMonth = curDate.getMonth();
-					   curDate.setMonth(curMonth + 1);
-					   curDate.setDate(0);
-					   return curDate.getDate();
-				}
-
-				// 下一个月
-				function getNextMonth(date) {
-	            var arr = date.split('-');
-	            var year = arr[0]; //获取当前日期的年份
-	            var month = arr[1]; //获取当前日期的月份
-	            var day = arr[2]; //获取当前日期的日
-	            var days = new Date(year, month, 0);
-	            days = days.getDate(); //获取当前日期中的月的天数
-	            var year2 = year;
-	            var month2 = parseInt(month) + 1;
-	            if (month2 == 13) {
-	                year2 = parseInt(year2) + 1;
-	                month2 = 1;
-	            }
-	            var day2 = day;
-	            var days2 = new Date(year2, month2, 0);
-	            days2 = days2.getDate();
-	            if (day2 > days2) {
-	                day2 = days2;
-	            }
-	            if (month2 < 10) {
-	                month2 = '0' + month2;
-	            }
-	        
-	            var t2 = year2 + '-' + month2 + '-' + day2;
-	            return t2;
-	         }
-	         
-
-			   var curDate = new Date();
-			   var curYear = curDate.getFullYear();
-			   var curMonth = (curDate.getMonth() + 1 > 9) ? curDate.getMonth() + 1 : '0' + (curDate.getMonth() + 1);
-			   var curDay = (curDate.getDate() > 9) ? curDate.getDate() : '0' + (curDate.getDate() + 1);
-			   var maxActiveDate = 60;
+			   var curDate = new Date(); //获取今天日期对象
+			   var curYear = curDate.getFullYear(); //根据今天日期对象获取当前年份
+			   var curMonth = (curDate.getMonth() + 1 > 9) ? curDate.getMonth() + 1 : '0' + (curDate.getMonth() + 1); //根据今天日期对象获取当前月 
+			   var curDay = leftPadZero(curDate.getDate()); //根据今天日期对象获取当前天数 
+			   var maxActiveDate = 60; //最大渲染天数
 			   
-			   var daysTextBox = $('#js-calendar').find('ul');
+			   var daysTextBox = $('#js-calendar').find('ul'); //日期容器
 			  
-			   // var now = new Date(curDate.getFullYear(), curDate.getMonth(), 1);
+			   
+			   //循环显示60天日期
+			   for(var i = 0; i < maxActiveDate; i++) {
+			  		
+				  	// 根据当前年，月，日+ i 获取下一天日期对象
+		            var nextday = new Date(curYear, curDate.getMonth(), curDate.getDate() + i);
 
-			   for(var i = curDay; i < maxActiveDate; i++) {
-			  		if(i > getCountDays()) {
-	            var days = new Date(curYear, curMonth, 0);
-	            days = days.getDate(); //获取当前日期中的月的天数
-	            var year2 = curYear;
-	            var month2 = parseInt(curMonth) + 1;
-	            if (month2 == 13) {
-	                year2 = parseInt(year2) + 1;
-	                month2 = 1;
-	            }
-	            var day2 = curDay;
-	            var days2 = new Date(year2, month2, 0);
-	            days2 = days2.getDate();
-	            if (day2 > days2) {
-	                day2 = days2;
-	            }
-	            if (month2 < 10) {
-	                month2 = '0' + month2;
-	            }
+		            // console.log(nextday)
+		            // days = days.getDate(); //获取当前日期中的月的天数
+		            // 根据下一天的日期对象获取年份
+		            var year2 = nextday.getFullYear();
+		            // 根据下一天的日期对象获取月
+		            var month2 =  (nextday.getMonth() + 1 > 9) ? nextday.getMonth() + 1 : '0' + (nextday.getMonth() + 1);
+		            // 根据下一天的日期对象获取日 
+		            var date = leftPadZero(nextday.getDate());
+		            var classname = '';
+		            if(i === 0){
+		            	classname ='on'
+		            }
 		  			var html = '';
-		  			html += '<li data-val="'+ year2 +'-' + month2 + '-' + i +'" >'+
-							'<p>'+ month2 + '-' + i +'</p>'+
-							'<h4>周二</h4>'+
+		  			html += '<li data-val="'+ year2 +'-' + month2 + '-' + date +'" class="'+classname+'">'+
+							'<p>'+ month2 + '-' + date  +'</p>'+
+							'<h4>'+showWeek(nextday.getDay())+'</h4>'+
 							'</li>';
-		  			daysTextBox.append(html);
-			  		} else {
-			  			var html = '';
-			  			html += '<li data-val="'+ curYear +'-' + curMonth + '-' + i +'" >'+
-								'<p>'+ curMonth + '-' + i +'</p>'+
-								'<h4>周二</h4>'+
-								'</li>';
-						// console.log(a[week])
-			  			daysTextBox.append(html);
-			  			if(curDay == i) {
-							daysTextBox.find('li').addClass('on')
-						}
-			  		}
-			   }
+		  			daysTextBox.append(html);		
+			   } 
 
 			})
+
+
 
 		</script>
 </body>

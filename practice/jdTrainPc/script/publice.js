@@ -42,16 +42,29 @@ function showWeek(week) {
 	return wk;
 }
 
+/**
+ *  数字小于10左补0
+ * @return {[type]} [description]
+ */
+function leftPadZero(number) {
+	return number > 9 ? number : '0' + number ;
+
+}
+// 当前日期
+// function weeks(week) {
+// 	var a = new Array("日", "一", "二", "三", "四", "五", "六")
+// 	return a[week]
+// }
+
 // 当前日期
 function timeRota(elem, elemt) {
 	var now = new Date();
 	var h = now.getFullYear();
 	var m = (now.getMonth() + 1 > 9) ? now.getMonth() + 1 : "0" + (now.getMonth() + 1);
 	var s = (now.getDate() > 9) ? now.getDate() : "0" + now.getDate();
-	var a = new Array("日", "一", "二", "三", "四", "五", "六")
 	var week = now.getDay();
 	$(elem).val( h + "-" + m + "-" + s);
-	$(elemt).text('周'+a[week]);
+	$(elemt).text(showWeek(week));
 }
 
 // 初始化日历
