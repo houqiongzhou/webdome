@@ -80,7 +80,7 @@ $(function() {
 					repText += '<div class="item-list">'+
 						'<a href="#" class="re-author"><img src="'+ data.author.avatar_url +'"></a>'+
 						'<div class="replies-text">'+
-							'<span>'+ data.author.loginname+'</span><a href="#">1楼•'+getDateDiff(repDateTime)+'</a>'+ data.content +'</div >'+
+							'<span>'+ data.author.loginname+'</span><a href="#">'+(i+1)+'楼•'+getDateDiff(repDateTime)+'</a>'+ data.content +'</div >'+
 						'<div class="user-action">'+
 							'<span title="喜欢"></span>'+
 							'<i onclick="addCount(this)"></i>'+
