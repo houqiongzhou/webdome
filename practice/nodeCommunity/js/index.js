@@ -1,3 +1,5 @@
+
+var pageNo = 1;
 function getDateDiff(dateTimeStamp){
 	var minute = 1000 * 60;
 	var hour = minute * 60;
@@ -31,25 +33,24 @@ function getDateDiff(dateTimeStamp){
 	result="刚刚";
 	return result;
 }
-function getData(tab){ 
-	var page = {
-		page:1
-	}
-	console.log(page+1)
+function getData(tab,page){ 
+	var page = page || 1
+	//console.log(page+1)
 	$.ajax({ 
 		url: "https://cnodejs.org/api/v1/topics", 
 		type:'GET',
 		data:{
-			page:1,
+			page:page,
 			tab:tab,
 			limit:24
 		},
 		success: function(res){
+			var html ='';
       	$.each(res.data, function(i,data) {
       		console.log(data)
       		var lastReplyAt = Date.parse(data.last_reply_at);
-				var html ='';
-					 html = '<div class="cell v-flex v-flex-between">'+
+				
+					 html += '<div class="cell v-flex v-flex-between">'+
 					'<div class="cell-inside v-flex v-flex-start">'+
 						'<a href="" class="user-avatar"><img src="'+ data.author.avatar_url +'" alt="user-avatar"></a>'+
 						'<span class="reply-count">'+
@@ -81,23 +82,40 @@ function getData(tab){
 					'</a>'+
 				'</div>';
 
-				$('.tab-content').append(html);
+				
       	});
+      	// $('.tab-content').append(html);
+      	$('.tab-content').html(html)
     	}
  	});
 
  }
+
+// function GetQueryString(name)
+// {
+//      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+//      var r = window.location.search.substr(1).match(reg);
+//      if(r!=null)return  unescape(r[2]); return null;
+// }
+
+// var tab = GetQueryString('tab')|| 'all';
+// alert(tab)
  getData('all')
 $(function(){
 	
  	// 单击tab
  	$('#tab li').on('click', function() {
  		$(this).addClass('active').siblings().removeClass('active');
- 		
+ 		var tab = $(this).attr('id')
+ 		getData(tab)
  	})
- 	// $("#goods").on('click', function() {
- 	// 	getData('ask');
- 	// 	console.log(getData('all'))
- 	// })
+ 	var tab = $('#tab li.active').attr('id')
+ 	$(".prev").on('click',function(){
+ 		getData(tab ,--pageNo)
+ 	})
+ 	$(".next").on('click', function() {
+ 		getData(tab ,++pageNo);
+ 		console.log('')
+ 	})
 
 })
