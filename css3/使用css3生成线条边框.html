@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>borderLine边框线条</title>
+	<style>
+		div[data-wav]{
+			outline:2px solid gray;
+			position: relative;
+			z-index: 1;
+			width: 300px;
+			height: 300px;
+			margin: auto;
+		}
+		div[data-wav]:before{
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+      background: linear-gradient(to top right,
+         transparent calc(50% - 1px), gray calc(50% - 1px),
+         gray calc(50% + 1px), transparent calc(50% + 1px)),
+      linear-gradient(to bottom right,
+         transparent calc(50% - 1px), gray calc(50% - 1px),
+         gray calc(50% + 1px), transparent calc(50% + 1px));
+			content:attr(data-wav);
+			font:bold 2em Jubilat, Georgia, serif;
+			color: gray;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+	</style>
+</head>
+<body>
+	<div data-wav="Articles">content goes here</div>
+	</body>
+</html>

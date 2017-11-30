@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>switch</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			border: 0;
+		}
+		*,*:after,*:before{
+			box-sizing: border-box;
+		}
+		#fields{
+			padding: 200px;
+			display:-webkit-box;
+			display: flex;
+			background-color: rgb(137, 97, 220);
+		}
+		.fields-item{
+			padding:0 20px;
+		}
+
+		/*switch*/
+		.uiswitch{
+			position: relative;
+			width:51px;
+			height: 31px;
+			border-radius: 16px;
+			cursor: pointer;
+			outline: none;
+			z-index: 0;
+			border: 0;
+			-webkit-appearance: none;
+			background-color: #e5e5e5;
+			transition-duration: 600ms;
+			transition-timing-function: ease-in-out;
+			-/*webkit-tap-highlight-color: transparent;
+			-webkit-user-select:none;*/
+		}
+		.uiswitch:after,.uiswitch:before{
+			content:"";
+			position: absolute;
+		}
+		.uiswitch:before{
+			width: 47px;
+			height: 27px;
+			left:2px;
+			top:2px;
+			z-index: 1;
+			border-radius: 16px;
+			background-color: #ffffff;
+			transition-duration: 300ms;
+			transform: scale(1)
+		}
+		.uiswitch:after{
+			width: 27px;
+			height: 27px;
+			border-radius: 27px;
+			background-color: #ffffff;
+			z-index: 2;
+			top:2px;
+			left: 2px;
+			box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.25),0 4px 11px 0px rgba(0,0,0,0.08), -1px 3px 3px 0px rgba(0,0,0,0.14);
+			transition:transform 300ms ,width 280ms;
+			transform: translate3d(0,0,0);
+			transition-timing-function: cubic-bezier(0.42,0.800, 0.58, 1.2);
+		}
+		/*checked*/
+		.uiswitch:checked{
+			background-color:#4CD964;
+			background-image:linear-gradient(-180deg,#4CD964 0%, #4dd865 100%);
+		}
+		.uiswitch:checked:after{
+			transform: translate3d(16px, 0, 0);
+			right: 18px;
+			left: inherit;
+		}
+		.uiswitch:active::after{
+			width: 35px;
+		}
+		.uiswitch:before,.uiswitch:active:before{
+			-webkit-transform: scale(0);
+			-ms-transform: scale(0);
+			-o-transform: scale(0);
+			transform: scale(0);
+		}
+	</style>
+</head>
+<body>
+	<section id="fields">
+		<div class="fields-item">
+			<input type="checkbox" class="uiswitch">
+			<h6>Off(unchecked)</h6>
+		</div>
+		<div class="fields-item">
+			<input type="checkbox" class="uiswitch">
+			<h6>On(checked)</h6>
+		</div>
+		<div class="fields-item">
+			<input type="checkbox" class="uiswitch" disabled>
+			<h6>Disabled Off</h6>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>desk</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #e16684;
+		}
+		.box{
+        width: 600px;
+        height: 420px;
+        margin: 0 auto;
+        position: relative;
+        display: block;
+        margin-top:8%;
+		}
+		.desk{
+			width: 90%;
+			height: 25%;
+			position: absolute;
+			left:5%;
+			bottom: 5%;
+			background-color: #7fc428;
+			border-bottom-left: 3%;
+			border-bottom-right-radius: 3%;
+			clip-path:polygon(10% 50%, 90% 50%, 100% 100%, 0% 100%);
+		}
+		.line-1{
+			width: 80%;
+			height: 3%;
+			background-color: #7fc428;
+			border-top: 9px solid #659c20;
+			position: absolute;
+			left: 10%;
+			bottom: 0;
+			z-index: 1;
+		}
+		.part-down{
+			position: absolute;
+			width: 40%;
+			height: 15%;
+			bottom: 10%;
+			left: 30%;
+			background-color: #2f2f2f;
+			-webkit-clip-path:polygon(10% 50%, 90% 50%, 100% 100%, 0% 100%);
+			clip-path:polygon(10% 50%, 90% 50%, 100% 100%, 0% 100%);
+			z-index: 1;
+		}
+		.part-1{
+			position: absolute;
+			width: 30%;
+			height: 7%;
+			bottom: 13.5%;
+			left: 35%;
+			background-color: #585858;
+			-webkit-clip-path:polygon(5% 50%,95% 50%, 100% 100%, 0% 100%);
+			clip-path:polygon(5% 50%,95% 50%, 100% 100%, 0% 100%);
+			z-index: 2;
+		}
+		.part-2{
+			position: absolute;
+			width: 10%;
+			height: 5%;
+			bottom: 10.5%;
+			left: 45%;
+			background-color: #585858;
+			-webkit-clip-path:polygon(5% 50%,95% 50%,100% 100%, 0 100%);
+			clip-path:polygon(5% 50%,95% 50%,100% 100%, 0 100%);
+			z-index: 2;
+		}
+		.part-up{
+			position: absolute;
+			width: 32%;
+			height: 20%;
+			left: 34%;
+			bottom: 17.5%;
+			background-color: #252525;
+			z-index: 1;
+		}
+		.inner-part{
+			position: absolute;
+			width: 90%;
+			height: 80%;
+			left: 5%;
+			top:10%;
+			background-color: #47b1d3;
+			background-image: linear-gradient(180deg, #47b1d3 80%, #d1526f 100%);
+			z-index: 1;
+		}
+		.circle-1{
+			position: absolute;
+			width: 10%;
+			height: 15%;
+			left: 10%;
+			top:20%;
+			background-color: #fff;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.circle-2{
+			position: absolute;
+			width: 15%;
+			height: 20%;
+			left: 25%;
+			top: 10%;
+			background-color: #fff;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.circle-3{
+			position: absolute;
+			width: 10%;
+			height: 15%;
+			left: 40%;
+			top: 25%;
+			background-color: #fff;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.circle-4{
+			position: absolute;
+			width: 15%;
+			height: 20%;
+			left: 55%;
+			top: 10%;
+			background-color: #fff;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.circle-5{
+			position: absolute;
+			width: 10%;
+			height: 15%;
+			left: 65%;
+			top: 35%;
+			background-color: #fff;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.circle-6{
+			position: absolute;
+			width: 10%;
+			height: 15%;
+			left: 82%;
+			top: 28%;
+			background-color: #fff;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.line-3{
+			position: absolute;
+			width: 2%;
+			height: 10%;
+			left: 15%;
+			top: 35%;
+			border-left: 2px dashed #fff;
+			z-index: 1;
+		}
+		.line-4,.line-5,.line-6,.line-7,.line-8,.line-9,.line-10,.line-11,.line-12,.line-13,.line-14,.line-15,.line-16,.line-17,.line-18{
+			position: absolute;
+			z-index: 1;
+		}
+		.line-4{
+			width: 25%;
+			height: 2%;
+			left: 15%;
+			top: 45%;
+			border-top: 2px dashed #fff;
+		}
+		.line-5{
+			width: 2%;
+			height: 21%;
+			top: 45%;
+			left: 40%;
+			border-left: 2px dashed #fff;
+		}
+		.line-6{
+			width: 2%;
+			height: 20%;
+			top: 30%;
+			left: 32%;
+			border-left: 2px dashed #fff;
+		}
+		.line-7{
+			width: 10%;
+			height: 2%;
+			top: 50%;
+			left: 32%;
+			border-top: 2px dashed #fff;
+		}
+		.line-8{
+			width: 2%;
+			height: 16%;
+			top: 50%;
+			left: 42%;
+			border-left:2px dashed #fff;
+		}
+		.line-9{
+			width: 2%;
+			height: 26%;
+			top:40%;
+			left: 45%;
+			border-left:2px dashed #fff;
+		}
+		.line-10{
+			width: 2%;
+			height: 15%;
+			top:30%;
+			left: 62%;
+			border-left:2px dashed #fff;
+		}
+		.line-11{
+			width: 10%;
+			height: 2%;
+			top: 45%;
+			left: 52.3%;
+			border-top:2px dashed #fff;
+		}
+		.line-12{
+			width: 2%;
+			height: 21%;
+			left: 52%;
+			top: 45%;
+			border-left:2px dashed #fff;
+		}
+		.line-13{
+			width: 2%;
+			height: 5%;
+			left: 70%;
+			top: 50%;
+			border-left: 2px dashed #fff;
+		}
+		.line-14{
+			width: 10%;
+			height: 2%;
+			top: 55%;
+			left: 60.3%;
+			border-top: 2px dashed #fff;
+		}
+		.line-15{
+			width: 2%;
+			height: 11%;
+			left:60.3%;
+			top:55%;
+			border-left: 2px dashed #fff
+		}
+		.line-16{
+			width: 2%;
+			height: 15%;
+			top:43%;
+			left: 87%;
+			border-left:2px dashed #fff;
+		}
+		.line-17{
+			width: 25%;
+			height: 2%;
+			top:58%;
+			left: 62.3%;
+			border-top:2px dashed #fff;
+		}
+		.line-18{
+			width: 2%;
+			height: 8%;
+			left: 62.3%;
+			top:58%;
+			border-left: 2px dashed #fff;
+		}
+		.small-part-1{
+			position: absolute;
+			left: 20%;
+			top:35%;
+			width: 60%;
+			height: 40%;
+			background-color: #e16684;
+			border-radius: 5%;
+		}
+		.small-part-2{
+			position: absolute;
+			left: 30%;
+			top:25%;
+			width:40%;
+			height: 50%;
+			background-color: #fff;
+			border-radius: 50%;
+		}
+		.small-part-3{
+			position: absolute;
+			width: 40%;
+			height: 10%;
+			top:-9%;
+			left: 40%;
+			background-color: #e16684;
+		}
+		.small-part-4{
+			position: absolute;
+			width: 50%;
+			height: 40%;
+			top:30%;
+			left: 25%;
+			background-color: #fff;
+			border-left: 2px solid #2fabca;
+			border-right:2px solid #2fabca;
+			border-top:2px dashed #2fabca;
+			border-bottom: 2px dashed #2fabca
+		}
+		.small-part-5{
+			position: absolute;
+			width: 40%;
+			height: 50%;
+			left: 25%;
+			top:20%;
+			background-color: #fff;
+			border:2px solid #2fabca;
+			border-radius: 50%;
+		}
+		.small-part-6{
+			position: absolute;
+			width: 40%;
+			height: 60%;
+			left: 30%;
+			top:20%;
+			background-color: #2fabca;
+			-webkit-clip-path:polygon(100% 50%, 0 1%, 0 100%);
+			clip-path:polygon(100% 50%, 0 1%, 0 100%);
+		}
+		.small-part-7{
+			position: absolute;
+			width: 70%;
+			height: 40%;
+			top:35%;
+			left:15%;
+			background-color: #2fabca;
+			-webkit-clip-path:polygon(0 0,100% 0, 100% 75%, 75% 75%, 75% 100%, 50% 75%,0% 75%);
+			clip-path:polygon(0 0,100% 0, 100% 75%, 75% 75%, 75% 100%, 50% 75%,0% 75%)
+		}
+		.small-part-8{
+			position: absolute;
+			width: 25%;
+			height: 30%;
+			left: 45%;
+			top:20%;
+			border:2px solid #e89e20;
+			border-radius: 50%;
+		}
+		.small-part-9{
+			position: absolute;
+			width: 2%;
+			height: 35%;
+			left: 45%;
+			top:50%;
+			background-color: #e89e20;
+			-webkit-transform: rotate(20deg);
+			-ms-transform: rotate(20deg);
+			-o-transform: rotate(20deg);
+			transform: rotate(20deg);
+		}
+		.small-part-10{
+			position: absolute;
+			width: 50%;
+			height: 50%;
+			left: 25%;
+			top:25%;
+			background-color: #d1526f;
+			-webkit-clip-path:polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+			clip-path:polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+			-webkit-transform: rotate(90deg);
+			-ms-transform: rotate(90deg);
+			-o-transform: rotate(90deg);
+			transform: rotate(90deg);
+		}
+		.small-part-11{
+			position: absolute;
+			width: 60%;
+			height: 40%;
+			left: 20%;
+			top:30%;
+			background-color: #7fc428;
+			-webkit-clip-path:polygon(20% 100%, 80% 100% ,100% 20%, 0% 20%);
+			clip-path:polygon(20% 100%, 80% 100% 100% 20%, 0% 20%);
+		}
+		.small-part-12{
+			position: absolute;
+			width: 10%;
+			height: 13%;
+			left: 33%;
+			top:71%;
+			background-color: #7fc428;
+			border-radius: 50%;
+		}
+		.small-part-13{
+			position: absolute;
+			width: 10%;
+			height: 13%;
+			right: 33%;
+			top:71%;
+			background-color: #7fc428;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box-1"></div>
+		<div class="desk"></div>
+		<div class="line-1"></div>
+		<div class="part-down"></div>
+		<div class="part-1"></div>
+		<div class="part-2"></div>
+		<div class="part-up">
+			<div class="inner-part"></div>
+		</div>
+		<div class="circle-1">
+			<div class="small-part-1">
+				<div class="small-part-2"></div>
+				<div class="small-part-3"></div>
+			</div>
+		</div>
+		<div class="circle-2">
+			<div class="small-part-4">
+				<div class="small-part-5">
+					<div class="small-part-6"></div>
+				</div>
+			</div>
+		</div>
+		<div class="circle-3">
+			<div class="small-part-7"></div>
+		</div>
+		<div class="circle-4">
+			<div class="small-part-8"></div>
+			<div class="small-part-9"></div>
+		</div>
+		<div class="circle-5">
+			<div class="small-part-10"></div>
+		</div>
+		<div class="circle-6">
+			<div class="small-part-11"></div>
+			<div class="small-part-12"></div>
+			<div class="small-part-13"></div>
+			
+		</div>
+		<div class="line-3"></div>
+		<div class="line-4"></div>
+		<div class="line-5"></div>
+		<div class="line-6"></div>
+		<div class="line-7"></div>
+		<div class="line-8"></div>
+		<div class="line-9"></div>
+		<div class="line-10"></div>
+		<div class="line-11"></div>
+		<div class="line-12"></div>
+		<div class="line-13"></div>
+		<div class="line-14"></div>
+		<div class="line-15"></div>
+		<div class="line-16"></div>
+		<div class="line-17"></div>
+		<div class="line-18"></div>
+		<div class="line-19"></div>
+		<div class="line-20"></div>
+	</div>
+</body>
+</html>
